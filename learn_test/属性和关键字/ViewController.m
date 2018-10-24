@@ -49,7 +49,7 @@
     
 //    [self func1];
 //    [self func2];
-    [self func4];
+    [self func5];
 }
 
 
@@ -111,6 +111,7 @@
     //p 打印出来的地址相同，所以是浅拷贝
     self.arr0 = @[@1,@3,@5];
     id arr0_copy = [self.arr0 copy];
+    
 //    [arr0_copy addObject:@7];//崩溃，生成的副本是不可变的
     
     //p 打印出来的地址不同，说明指向首元素的指针地址是不同的，但打印首元素的地址是相同的,所以只是拷贝了首元素的指针，并没有拷贝内容
@@ -166,6 +167,6 @@
     id dic1_mutable = [self.dic1 mutableCopy];
     [dic1_mutable setObject:@5 forKey:@"key5"];//正常运行，副本是可变的
     
-    
+    id dic2 = [[NSDictionary alloc]initWithDictionary:self.dic1 copyItems:YES];
 }
 @end
