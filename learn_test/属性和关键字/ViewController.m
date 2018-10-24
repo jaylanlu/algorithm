@@ -59,7 +59,7 @@
     
 //    [self func1];
 //    [self func2];
-    [self func6];
+    [self func7];
 }
 
 
@@ -203,5 +203,12 @@
     
     //小结：NSString、NSArray、NSDictionary、NSSet因为其可变型的存在，应该用copy修饰，防止被改变，而其可变形因为需要改变所以应该用strong修饰，防止其不可被改变
     
+}
+
+- (void)func7 {
+    NSMutableString *strM = [[NSMutableString alloc] initWithString:@"strValue"];
+    NSLog(@"strM置地址：%p--strM值：%@--strM值引用计数：%@",strM,strM,[strM valueForKey:@"retainCount"]);
+    self.str_strong = strM;
+    self.str_strong = nil;
 }
 @end
