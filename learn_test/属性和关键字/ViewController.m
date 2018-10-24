@@ -28,12 +28,22 @@
 @property (nonatomic, copy) NSString *ss0;
 @property (nonatomic, copy) NSArray *arr0;
 @property (nonatomic, copy) NSSet *set0;
-@property (nonatomic, strong)NSDictionary * dic0;
+@property (nonatomic, copy) NSDictionary * dic0;
 
 @property (nonatomic, strong) NSMutableString *ss1;
 @property (nonatomic, strong) NSMutableArray *arr1;
-@property (nonatomic, copy) NSMutableSet *set1;
-@property (nonatomic, strong)NSMutableDictionary *dic1;
+@property (nonatomic, strong) NSMutableSet *set1;
+@property (nonatomic, strong) NSMutableDictionary *dic1;
+
+
+/**
+ strong修饰和copy修饰的区别
+ */
+@property (nonatomic, strong) NSString *str_strong;
+@property (nonatomic, copy) NSString *str_copy;
+
+@property (nonatomic, strong) NSMutableString *mstr_strong;
+@property (nonatomic, copy) NSMutableString *mstr_copy;
 
 @end
 
@@ -49,7 +59,7 @@
     
 //    [self func1];
 //    [self func2];
-    [self func5];
+    [self func6];
 }
 
 
@@ -132,6 +142,7 @@
     //小结：严格的来说数组的所有拷贝都是浅拷贝，只有不可变数组的copy没有进行指针拷贝，其他的都只是进行了指针拷贝；copy生成的副本都是不可变的，mutableCopy生成的副本都是可变的，这个和字符串相同
 }
 
+//集合和拷贝
 - (void)func4 {
     //打印出来的地址相同，浅拷贝
     self.set0 = [[NSSet alloc] initWithObjects:@1,@2,@3, nil];
@@ -148,8 +159,11 @@
     [set0_mutableCopy addObject:@6];//正常运行，副本是可变的
     id set1_mutableCopy = [self.set1 mutableCopy];
     [set1_mutableCopy addObject:@7];//正常运行，副本是可变的
+    
+    //小结：严格的来说集合的所有拷贝都是浅拷贝，只有不可变数组的copy没有进行指针拷贝，其他的都只是进行了指针拷贝；copy生成的副本都是不可变的，mutableCopy生成的副本都是可变的，这个和字符串相同
 }
 
+//字典和拷贝
 - (void)func5 {
     //打印地址一样，浅拷贝
     self.dic0 = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -168,5 +182,26 @@
     [dic1_mutable setObject:@5 forKey:@"key5"];//正常运行，副本是可变的
     
     id dic2 = [[NSDictionary alloc]initWithDictionary:self.dic1 copyItems:YES];
+    
+    //小结：严格的来说字典的所有拷贝都是浅拷贝，只有不可变数组的copy没有进行指针拷贝，其他的都只是进行了指针拷贝；copy生成的副本都是不可变的，mutableCopy生成的副本都是可变的，这个和字符串相同
+}
+
+//copy、strong修饰的区别
+- (void)func6 {
+    NSMutableString *ss = [[NSMutableString alloc] initWithString:@"111"];
+    self.str_strong = ss;//打印出来的地址和ss相同
+    self.str_copy = ss;//打印出来的地址和ss不同
+    NSLog(@"--ss:%p---strong:%p---copy:%p",ss,self.str_strong,self.str_copy);
+    [ss appendString:@"222"];
+    //前面两个相同输出的是111222，后面输出的是111
+    NSLog(@"ss:%@--strong:%@--copy:%@",ss,self.str_strong,self.str_copy);
+    
+    self.mstr_strong = ss;//打印出来的地址和ss相同
+    self.mstr_copy = ss;//打印出来的地址和ss不同
+    [self.mstr_strong appendString:@"333"];//正常运行
+//    [self.mstr_copy appendString:@"333"];//崩溃，因为生成的字符串是不可变的
+    
+    //小结：NSString、NSArray、NSDictionary、NSSet因为其可变型的存在，应该用copy修饰，防止被改变，而其可变形因为需要改变所以应该用strong修饰，防止其不可被改变
+    
 }
 @end
