@@ -19,6 +19,7 @@
 @property (nonatomic, assign, getter=isFinished) BOOL finished;//编译器生成的get函数是isFinished,可以用self.isFinished访问该属性;self.isFinished和self.finished指向的地址是相同的
 @property (nonatomic, strong, getter=getModel) NSString *str;
 @property (nonatomic, strong) NSString * string;
+@property (nonatomic, strong) NSMutableArray * sts;
 
 
 
@@ -57,6 +58,7 @@
 @synthesize finished = _ggfinished;//finished的set方法会操作_ggfinished（这儿会自动生成成员变量_ggfinished）
 @synthesize str = _gstr;//如果不存在@synthesize关键字，相当于@synthesize给每个属性都添加了合取（如string的就是：@synthesize string = _string）
 @dynamic string;//编译器不会自动合取string的get和set方法,并且也不会生成_string成员变量，不能用_string访问
+@synthesize sts;//不会生成成员变量_sts,但是可以用sts 访问属性，并且sts的和self.sts相同
 
 
 
@@ -74,13 +76,15 @@
  */
 - (void)func1 {
     self.finished = YES;
+    self.sts = [[NSMutableString alloc] initWithString:@""];
+    NSLog(@"sts:%p--%p",self.sts,sts);
     
-    //三个打印的内存地址是相同的标明三个指向的是同一个对象,并且值都改变了为1
+    //三个打印的内存地址是相同的标明三个指向的是同一个对象,并且值都改变了为1,retainCount = 1说明三个是同一个东西
     NSLog(@"isFinshed--%d--%p",self.isFinished,self.isFinished);
     NSLog(@"finsihed--%d--%p",self.finished,self.finished);
     NSLog(@"ggfinished--%d--%p---%x",_ggfinished,_ggfinished,&_ggfinished);
     
-    //字符串类型的结构是相同的
+    //字符串类型的结构是相同的,地址相同
     self.str = @"hhh";
     NSLog(@"getModel--%@--%p",self.getModel,self.getModel);
     NSLog(@"_gstr--%@--%p",_gstr,_gstr);
@@ -238,5 +242,7 @@
 //    (lldb) p self.assignStr
 //    (NSString *) $2 = 0x000060000232f720//指针存在依旧指向原来的内存块，可对象已被释放
     
+    NSString *stringMore10 = [[NSString alloc] initWithString:@"1234567891"];
+    self.strongStr = stringMore10;
 }
 @end
