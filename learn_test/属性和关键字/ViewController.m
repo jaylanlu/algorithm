@@ -37,13 +37,19 @@
 
 
 /**
- strong修饰和copy修饰的区别
+ strong修饰和copy修饰的对于存在可变形类型的区别
  */
 @property (nonatomic, strong) NSString *str_strong;
 @property (nonatomic, copy) NSString *str_copy;
 
 @property (nonatomic, strong) NSMutableString *mstr_strong;
 @property (nonatomic, copy) NSMutableString *mstr_copy;
+
+
+@property (nonatomic, strong) NSString *strongStr;
+@property (nonatomic, weak) NSString *weakStr;
+@property (nonatomic, assign) NSString *assignStr;
+@property (nonatomic, copy) NSString *cpStr;
 
 @end
 
@@ -59,7 +65,7 @@
     
 //    [self func1];
 //    [self func2];
-    [self func7];
+    [self func1];
 }
 
 
@@ -207,8 +213,30 @@
 
 - (void)func7 {
     NSMutableString *strM = [[NSMutableString alloc] initWithString:@"strValue"];
-    NSLog(@"strM置地址：%p--strM值：%@--strM值引用计数：%@",strM,strM,[strM valueForKey:@"retainCount"]);
-    self.str_strong = strM;
-    self.str_strong = nil;
+    NSLog(@"strM值地址：%p--strM值：%@--strM值引用计数：%@",strM,strM,[strM valueForKey:@"retainCount"]);
+    self.strongStr = strM;
+    
+    //下面两个打印的结果都是2，说明weak、assign不影响引用计数，而copy从上面的介绍可以知道是另外开辟了内存空间实现了深拷贝
+    NSLog(@"strM值引用计数：%@",[strM valueForKey:@"retainCount"]);
+    self.weakStr = strM;
+    self.assignStr = strM;
+    self.cpStr = strM;
+    //打印的weak、assign和strM值地址相同，所以没有开辟内存，而copy不同，所以开辟了内存
+    NSLog(@"weak:%p---assign:%p----copy:%p",self.weakStr,self.assignStr,self.cpStr);
+    NSLog(@"strM值引用计数：%@",[strM valueForKey:@"retainCount"]);
+    self.strongStr = nil;
+    NSLog(@"strM值引用计数：%@",[strM valueForKey:@"retainCount"]);//引用计数减1
+    strM = nil;
+    //崩溃EXC_BAD_ACCESS (code=EXC_I386_GPFLT),原因是assign访问了一个不属于你的的内存
+//    NSLog(@"weak:%p---assign:%p----copy:%p",self.weakStr,self.assignStr,self.cpStr);
+    
+    //控制台打印出来的结果
+//    (lldb) p self.weakStr
+//    (NSString *) $0 = nil
+//    (lldb) p self.strongStr
+//    (NSString *) $1 = nil
+//    (lldb) p self.assignStr
+//    (NSString *) $2 = 0x000060000232f720//指针存在依旧指向原来的内存块，可对象已被释放
+    
 }
 @end
