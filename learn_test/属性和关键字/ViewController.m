@@ -10,6 +10,7 @@
 
 @interface ViewController (){
     BOOL _finished;
+    BOOL isShow;
 //    BOOL _ggfinished;//这行代码存不存在不重要，下面合取的时候会自动生成
 }
 
@@ -52,6 +53,7 @@
 @property (nonatomic, assign) NSString *assignStr;
 @property (nonatomic, copy) NSString *cpStr;
 
+
 @end
 
 @implementation ViewController
@@ -70,12 +72,23 @@
     [self func1];
 }
 
+//+ (NSString *)sta {
+//    return ViewController.sta;
+//}
+//
+//+ (void)setSta:(NSString *)sta {
+//    ViewController.sta = sta;
+//}
+//
 
 /**
  get、set以及@synthesize、@dynamic相关测试
  */
 - (void)func1 {
+    
+//    ViewController.sta = @"lll";
     self.finished = YES;
+ 
     self.sts = [[NSMutableString alloc] initWithString:@""];
     NSLog(@"sts:%p--%p",self.sts,sts);
     

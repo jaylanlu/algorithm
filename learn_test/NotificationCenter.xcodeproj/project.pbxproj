@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F611F21D21829D3F0013BD97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F611F21C21829D3F0013BD97 /* AppDelegate.m */; };
+		F611F22021829D3F0013BD97 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F611F21F21829D3F0013BD97 /* ViewController.m */; };
+		F611F22321829D3F0013BD97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F611F22121829D3F0013BD97 /* Main.storyboard */; };
+		F611F22521829D410013BD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F611F22421829D410013BD97 /* Assets.xcassets */; };
+		F611F22821829D410013BD97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F611F22621829D410013BD97 /* LaunchScreen.storyboard */; };
+		F611F22B21829D410013BD97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F611F22A21829D410013BD97 /* main.m */; };
+		F611F2312182F5850013BD97 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F611F2302182F5850013BD97 /* Person.m */; };
 		F67C4A952176D0A700DA69B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F67C4A942176D0A700DA69B4 /* AppDelegate.m */; };
 		F67C4A982176D0A700DA69B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67C4A972176D0A700DA69B4 /* ViewController.m */; };
 		F67C4A9B2176D0A700DA69B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F67C4A992176D0A700DA69B4 /* Main.storyboard */; };
@@ -36,6 +43,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F611F21921829D3F0013BD97 /* KVC&KVO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KVC&KVO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F611F21B21829D3F0013BD97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F611F21C21829D3F0013BD97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F611F21E21829D3F0013BD97 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F611F21F21829D3F0013BD97 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F611F22221829D3F0013BD97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F611F22421829D410013BD97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F611F22721829D410013BD97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F611F22921829D410013BD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F611F22A21829D410013BD97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F611F22F2182F5850013BD97 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		F611F2302182F5850013BD97 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		F67C4A902176D0A700DA69B4 /* NotificationCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F67C4A932176D0A700DA69B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F67C4A942176D0A700DA69B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +80,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F611F21621829D3F0013BD97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F67C4A8D2176D0A700DA69B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,12 +104,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F611F21A21829D3F0013BD97 /* KVC&KVO */ = {
+			isa = PBXGroup;
+			children = (
+				F611F21B21829D3F0013BD97 /* AppDelegate.h */,
+				F611F21C21829D3F0013BD97 /* AppDelegate.m */,
+				F611F21E21829D3F0013BD97 /* ViewController.h */,
+				F611F21F21829D3F0013BD97 /* ViewController.m */,
+				F611F22121829D3F0013BD97 /* Main.storyboard */,
+				F611F22421829D410013BD97 /* Assets.xcassets */,
+				F611F22621829D410013BD97 /* LaunchScreen.storyboard */,
+				F611F22921829D410013BD97 /* Info.plist */,
+				F611F22A21829D410013BD97 /* main.m */,
+				F611F22F2182F5850013BD97 /* Person.h */,
+				F611F2302182F5850013BD97 /* Person.m */,
+			);
+			path = "KVC&KVO";
+			sourceTree = "<group>";
+		};
 		F67C4A872176D0A700DA69B4 = {
 			isa = PBXGroup;
 			children = (
 				F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */,
 				F67C4A922176D0A700DA69B4 /* 通知与多线程 */,
 				F67C4AE421773A5D00DA69B4 /* 属性和关键字 */,
+				F611F21A21829D3F0013BD97 /* KVC&KVO */,
 				F67C4A912176D0A700DA69B4 /* Products */,
 				F67C4AB72176D18000DA69B4 /* NotificationCenter copy-Info.plist */,
 			);
@@ -94,6 +139,7 @@
 			children = (
 				F67C4A902176D0A700DA69B4 /* NotificationCenter.app */,
 				F67C4AE321773A5D00DA69B4 /* Property&Keyword.app */,
+				F611F21921829D3F0013BD97 /* KVC&KVO.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +179,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F611F21821829D3F0013BD97 /* KVC&KVO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F611F22E21829D410013BD97 /* Build configuration list for PBXNativeTarget "KVC&KVO" */;
+			buildPhases = (
+				F611F21521829D3F0013BD97 /* Sources */,
+				F611F21621829D3F0013BD97 /* Frameworks */,
+				F611F21721829D3F0013BD97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KVC&KVO";
+			productName = KVO;
+			productReference = F611F21921829D3F0013BD97 /* KVC&KVO.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F67C4A8F2176D0A700DA69B4 /* NotificationCenter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F67C4AA62176D0A800DA69B4 /* Build configuration list for PBXNativeTarget "NotificationCenter" */;
@@ -177,6 +240,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Jaylan;
 				TargetAttributes = {
+					F611F21821829D3F0013BD97 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					F67C4A8F2176D0A700DA69B4 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -200,11 +266,22 @@
 			targets = (
 				F67C4A8F2176D0A700DA69B4 /* NotificationCenter */,
 				F67C4AE221773A5D00DA69B4 /* Property&Keyword */,
+				F611F21821829D3F0013BD97 /* KVC&KVO */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F611F21721829D3F0013BD97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F611F22821829D410013BD97 /* LaunchScreen.storyboard in Resources */,
+				F611F22521829D410013BD97 /* Assets.xcassets in Resources */,
+				F611F22321829D3F0013BD97 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F67C4A8E2176D0A700DA69B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +306,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F611F21521829D3F0013BD97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F611F22021829D3F0013BD97 /* ViewController.m in Sources */,
+				F611F22B21829D410013BD97 /* main.m in Sources */,
+				F611F2312182F5850013BD97 /* Person.m in Sources */,
+				F611F21D21829D3F0013BD97 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F67C4A8C2176D0A700DA69B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +340,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F611F22121829D3F0013BD97 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F611F22221829D3F0013BD97 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F611F22621829D410013BD97 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F611F22721829D410013BD97 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		F67C4A992176D0A700DA69B4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +391,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F611F22C21829D410013BD97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/KVC&KVO/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com..KVC-KVO";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F611F22D21829D410013BD97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/KVC&KVO/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com..KVC-KVO";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F67C4AA42176D0A800DA69B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -468,6 +604,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F611F22E21829D410013BD97 /* Build configuration list for PBXNativeTarget "KVC&KVO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F611F22C21829D410013BD97 /* Debug */,
+				F611F22D21829D410013BD97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F67C4A8B2176D0A700DA69B4 /* Build configuration list for PBXProject "NotificationCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
