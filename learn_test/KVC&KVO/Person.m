@@ -8,6 +8,14 @@
 
 #import "Person.h"
 
+@interface Person()
+
+/**
+ kvc 与数组
+ */
+@property (nonatomic, strong) NSMutableArray *arr;
+@end
+
 @implementation Person {
     //[person setValue:@"Davi" forKey:@"name"] 成员变量找的顺序
     //_name->_isName->name->isName
@@ -79,5 +87,7 @@
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSLog(@"2---该key不存在--%@",key);
 }
+
+
 
 @end
