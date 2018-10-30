@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55AD785C218750AF00DF6C1D /* ViewController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AD785B218750AF00DF6C1D /* ViewController01.m */; };
 		F611F21D21829D3F0013BD97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F611F21C21829D3F0013BD97 /* AppDelegate.m */; };
 		F611F22021829D3F0013BD97 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F611F21F21829D3F0013BD97 /* ViewController.m */; };
 		F611F22321829D3F0013BD97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F611F22121829D3F0013BD97 /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		55AD785A218750AF00DF6C1D /* ViewController01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController01.h; sourceTree = "<group>"; };
+		55AD785B218750AF00DF6C1D /* ViewController01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController01.m; sourceTree = "<group>"; };
 		F611F21921829D3F0013BD97 /* KVC&KVO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KVC&KVO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F611F21B21829D3F0013BD97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F611F21C21829D3F0013BD97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,8 +124,13 @@
 				F611F22A21829D410013BD97 /* main.m */,
 				F611F22F2182F5850013BD97 /* Person.h */,
 				F611F2302182F5850013BD97 /* Person.m */,
+
 				F6FE47A92186981400155CD4 /* Address.h */,
 				F6FE47AA2186981400155CD4 /* Address.m */,
+
+				55AD785A218750AF00DF6C1D /* ViewController01.h */,
+				55AD785B218750AF00DF6C1D /* ViewController01.m */,
+
 			);
 			path = "KVC&KVO";
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AD785C218750AF00DF6C1D /* ViewController01.m in Sources */,
 				F611F22021829D3F0013BD97 /* ViewController.m in Sources */,
 				F611F22B21829D410013BD97 /* main.m in Sources */,
 				F611F2312182F5850013BD97 /* Person.m in Sources */,
