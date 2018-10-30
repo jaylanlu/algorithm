@@ -7,7 +7,7 @@
 		<key>KVC&amp;KVO.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 		<key>KVO.xcscheme</key>
 		<dict>
@@ -22,12 +22,12 @@
 		<key>NotificationCenter.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Property&amp;Keyword.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>learn_test copy.xcscheme</key>
 		<dict>

@@ -7,7 +7,12 @@
 //
 
 #import "Person.h"
+//#import "Address.h"//kvc中的keyPath
 
+@interface Person()
+@property (nonatomic, strong) Address *address;
+
+@end
 @implementation Person {
     //[person setValue:@"Davi" forKey:@"name"] 成员变量找的顺序
     //_name->_isName->name->isName
@@ -20,6 +25,13 @@
     
     BOOL isShow;
 //    NSInteger num;
+}
+
+- (instancetype)initWith:(Address *)address {
+    if (self = [super init]) {
+        _address = address;
+    }
+    return self;
 }
 
 
@@ -46,11 +58,35 @@
     return 10;
 }
 
-//NSString *nn = [person valueForKey:@"num"];会调用这个
-- (NSNumber *)objectInNumAtIndex:(NSInteger)idx {
-    return @3;
+
+/**
+ 若getter系列方法没有找到，KVC会查找countOf<key>objectIn<key>AtIndex:(NSInteger)idx或<key>AtIndexes格式的方法
+ 若countOf<key>和另外两个中的一个被找到，那么就会返回一个可以响应NSArray所�有方法的代理集合(它是NSKeyValueArray，是NSArray的子类)，调用这个代理集合的方法，或者说给这个代理集合发送属于NSArray的方法，就会以countOf<Key>,objectIn<Key>AtIndex�或<Key>AtIndexes这几个方法组合的形式调用。
+ 若还是没哟找到，同时会查找enumeratorOf<key>,memberOf<key>、countOfStrr三个方法
+ */
+
+- (NSUInteger *)countOfStrr {
+    return 3;
 }
 
+//下面两个是数组
+//- (id)objectInStrrAtIndex:(NSInteger)idx {
+//    
+//    return @"";
+//}
+//
+//- (id)strrAtIndexes {
+//    return @"";
+//}
+
+//下面两个是集合
+- (id)enumeratorOfStrr {
+    return @"";
+}
+
+- (id)memberOfStrr {
+    return @"";
+}
 
 
 /**

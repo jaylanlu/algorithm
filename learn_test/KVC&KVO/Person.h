@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Address.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
-
+//@property (nonatomic, strong) NSString *address;
+- (instancetype)initWith:(Address *)address;
 @end
 
 NS_ASSUME_NONNULL_END

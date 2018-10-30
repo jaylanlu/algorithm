@@ -27,6 +27,7 @@
 		F67C4AF221773A5D00DA69B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF021773A5D00DA69B4 /* LaunchScreen.storyboard */; };
 		F67C4AF521773A5D00DA69B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F67C4AF421773A5D00DA69B4 /* main.m */; };
 		F67C4AFA2178A54100DA69B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */; };
+		F6FE47AB2186981400155CD4 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FE47AA2186981400155CD4 /* Address.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +78,8 @@
 		F67C4AF321773A5D00DA69B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F67C4AF421773A5D00DA69B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F6FE47A92186981400155CD4 /* Address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		F6FE47AA2186981400155CD4 /* Address.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				F611F22A21829D410013BD97 /* main.m */,
 				F611F22F2182F5850013BD97 /* Person.h */,
 				F611F2302182F5850013BD97 /* Person.m */,
+				F6FE47A92186981400155CD4 /* Address.h */,
+				F6FE47AA2186981400155CD4 /* Address.m */,
 			);
 			path = "KVC&KVO";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				F611F22021829D3F0013BD97 /* ViewController.m in Sources */,
 				F611F22B21829D410013BD97 /* main.m in Sources */,
 				F611F2312182F5850013BD97 /* Person.m in Sources */,
+				F6FE47AB2186981400155CD4 /* Address.m in Sources */,
 				F611F21D21829D3F0013BD97 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
