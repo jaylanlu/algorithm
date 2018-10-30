@@ -10,11 +10,11 @@
 //#import "Address.h"//kvc中的keyPath
 
 @interface Person()
-<<<<<<< HEAD
+
 @property (nonatomic, strong) Address *address;
 
-@end
-=======
+
+
 
 /**
  kvc 与数组
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *arr;
 @end
 
->>>>>>> 378c1ee6a8bf196437fda8157e271b26b9b060df
+
 @implementation Person {
     //[person setValue:@"Davi" forKey:@"name"] 成员变量找的顺序
     //_name->_isName->name->isName
@@ -34,6 +34,7 @@
     NSString *toSetName;
     
     BOOL isShow;
+    
 //    NSInteger num;
 }
 
@@ -126,6 +127,34 @@
     NSLog(@"2---该key不存在--%@",key);
 }
 
+//打印顺序
+//2018-10-30 20:09:23.818787+0800 KVC&KVO[31118:663565] willChangeValueForKey
+//2018-10-30 20:09:23.818920+0800 KVC&KVO[31118:663565] didChangeValueForKey-begin
+//2018-10-30 20:09:29.625913+0800 KVC&KVO[31118:663565] dic--{
+//    kind = 1;
+//    new = 10;
+//    old = 5;
+//}
+//2018-10-30 20:09:29.626116+0800 KVC&KVO[31118:663565] didChangeValueForKey-end
 
+- (void)setAge:(NSUInteger)age {
+    [self willChangeValueForKey:@"age"];
+    _age = age;
+    [self didChangeValueForKey:@"age"];
+}
 
+- (void)willChangeValueForKey:(NSString *)key {
+    [super willChangeValueForKey:key];
+    NSLog(@"willChangeValueForKey");
+}
+
+- (void)didChangeValueForKey:(NSString *)key {
+    NSLog(@"didChangeValueForKey-begin");
+    [super didChangeValueForKey:key];
+    NSLog(@"didChangeValueForKey-end");
+}
+
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
+    return NO;
+}
 @end
