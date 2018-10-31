@@ -10,9 +10,6 @@
 
 @implementation AView
 
-- (IBAction)tap:(UITapGestureRecognizer *)sender {
-    NSLog(@"%@--单击",[self class]);
-}
 
 
 @end

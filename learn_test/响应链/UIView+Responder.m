@@ -30,10 +30,13 @@ static inline void swizzling_exchangeMethod(Class class,SEL originalSelector,SEL
         swizzling_exchangeMethod([UIView class], @selector(touchesBegan:withEvent:), @selector(ds_touchesBegan:withEvent:));
         swizzling_exchangeMethod([UIView class],@selector(touchesMoved:withEvent:), @selector(ds_touchesMoved:withEvent:));
         swizzling_exchangeMethod([UIView class], @selector(touchesEnded:withEvent:), @selector(ds_touchesEnded:withEvent:));
+        
+        swizzling_exchangeMethod([UIView class], @selector(hitTest:withEvent:), @selector(ds_hitTest:withEvent:));
+        swizzling_exchangeMethod([UIView class], @selector(pointInside:withEvent:), @selector(ds_pointInside:withEvent:));
     });
 }
 
-#pragma mark-- 替换的方法
+#pragma mark-- 视图替换的方法
 - (void)ds_touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"%@ touch begin", self.class);
     UIResponder *next = [self nextResponder];
@@ -49,6 +52,39 @@ static inline void swizzling_exchangeMethod(Class class,SEL originalSelector,SEL
 
 - (void)ds_touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"%@ touch end", self.class);
+}
+
+//模拟
+- (UIView *)ds_hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    if (!self.isUserInteractionEnabled || self.isHidden || self.alpha < 0.01) {
+        return  nil;
+    }
+    if ([self pointInside:point withEvent:event]) {
+        //逆序遍历
+        for (UIView *subView in [self.subviews reverseObjectEnumerator]) {
+            CGPoint convertedPoint = [subView convertPoint:point fromView:self];
+            
+            UIView *hitTestView = [subView hitTest:convertedPoint withEvent:event];
+            if (hitTestView) {
+                 //在这里打印self.class可以看到递归返回的顺序
+                return hitTestView;
+            }
+        }
+        //这里就是该视图没有子视图了 点在该视图中，所以直接返回本身，上面的hitTestView就是这个。
+        NSLog(@"命中的view:%@",self.class);
+        return self;
+    }
+    return nil;
+}
+
+- (BOOL)ds_pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    BOOL success = CGRectContainsPoint(self.bounds, point);
+    if (success) {
+        NSLog(@"点在%@里",self.class);
+    }else {
+        NSLog(@"点不在%@里",self.class);
+    }
+    return success;
 }
 
 @end

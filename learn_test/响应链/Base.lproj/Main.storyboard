@@ -92,9 +92,6 @@
                                     <constraint firstAttribute="trailing" secondItem="gde-TI-CjY" secondAttribute="trailing" constant="20" id="iLs-CJ-hI9"/>
                                     <constraint firstAttribute="width" constant="240" id="zC4-dm-2r3"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kze-lQ-J35" appends="YES" id="PoJ-Sh-wEW"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,9 +101,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="aView" destination="gRe-es-iC6" id="8T8-JY-Z2J"/>
+                        <outlet property="bView" destination="yCS-Kb-1e6" id="wtl-LJ-pnJ"/>
+                        <outlet property="cView" destination="qPx-fF-irv" id="ffg-AJ-TE0"/>
+                        <outlet property="dView" destination="gde-TI-CjY" id="gdS-iM-ZNH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="kze-lQ-J35"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="86.806596701649184"/>
         </scene>
