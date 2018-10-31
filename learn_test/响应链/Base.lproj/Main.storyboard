@@ -64,8 +64,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gde-TI-CjY" customClass="DView">
                                         <rect key="frame" x="20" y="269" width="200" height="150"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qe-pL-uBL">
-                                                <rect key="frame" x="75.5" y="64.5" width="49" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qe-pL-uBL">
+                                                <rect key="frame" x="8" y="8" width="49" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -73,9 +74,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="6qe-pL-uBL" firstAttribute="centerY" secondItem="gde-TI-CjY" secondAttribute="centerY" id="0m8-2h-E7s"/>
                                             <constraint firstAttribute="height" constant="150" id="Kdt-qd-076"/>
-                                            <constraint firstItem="6qe-pL-uBL" firstAttribute="centerX" secondItem="gde-TI-CjY" secondAttribute="centerX" id="ana-uQ-5MN"/>
                                         </constraints>
                                     </view>
                                 </subviews>

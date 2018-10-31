@@ -101,6 +101,8 @@
     
 
 }
+- (IBAction)clickAction:(UIButton *)sender {
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.person1.age = self.person2.age = 10;

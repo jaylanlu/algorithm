@@ -17,5 +17,8 @@
     // Drawing code
 }
 */
+- (IBAction)tapAction:(UIButton *)sender {
+    NSLog(@"this is btn action");
+}
 
 @end

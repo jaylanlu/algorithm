@@ -8,6 +8,8 @@
 
 #import "UIView+Responder.h"
 #import <objc/runtime.h>
+#import "DView.h"
+#import "CView.h"
 
 
 static inline void swizzling_exchangeMethod(Class class,SEL originalSelector,SEL swizzlingSelector) {
@@ -59,8 +61,14 @@ static inline void swizzling_exchangeMethod(Class class,SEL originalSelector,SEL
     if (!self.isUserInteractionEnabled || self.isHidden || self.alpha < 0.01) {
         return  nil;
     }
-    if ([self pointInside:point withEvent:event]) {
-        //逆序遍历
+    
+    CGRect touch = self.bounds;
+    if ([self isKindOfClass:CView.class]) {
+        touch = CGRectInset(self.bounds, -30, -30);//都可以增大响应面积
+    }
+
+    if (CGRectContainsPoint(touch, point)) {//[self pointInside:point withEvent:event]
+        //逆序遍历，在subViews后面的先
         for (UIView *subView in [self.subviews reverseObjectEnumerator]) {
             CGPoint convertedPoint = [subView convertPoint:point fromView:self];
             
@@ -78,7 +86,11 @@ static inline void swizzling_exchangeMethod(Class class,SEL originalSelector,SEL
 }
 
 - (BOOL)ds_pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    BOOL success = CGRectContainsPoint(self.bounds, point);
+    CGRect touchRect = self.bounds;
+    if ([self isKindOfClass:DView.class]) {
+        touchRect = CGRectInset(self.bounds, -30, -30);//增加view的响应面积
+    }
+    BOOL success = CGRectContainsPoint(touchRect, point);
     if (success) {
         NSLog(@"点在%@里",self.class);
     }else {
