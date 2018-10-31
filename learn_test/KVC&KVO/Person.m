@@ -10,11 +10,9 @@
 //#import "Address.h"//kvc中的keyPath
 
 @interface Person()
-<<<<<<< HEAD
+
 @property (nonatomic, strong) Address *address;
 
-@end
-=======
 
 /**
  kvc 与数组
@@ -22,7 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *arr;
 @end
 
->>>>>>> 378c1ee6a8bf196437fda8157e271b26b9b060df
+
 @implementation Person {
     //[person setValue:@"Davi" forKey:@"name"] 成员变量找的顺序
     //_name->_isName->name->isName
@@ -124,6 +122,10 @@
  */
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSLog(@"2---该key不存在--%@",key);
+}
+
+- (void)tap {
+    NSLog(@"this is k");
 }
 
 

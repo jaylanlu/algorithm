@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Person : NSObject
 //@property (nonatomic, strong) NSString *address;
 - (instancetype)initWith:(Address *)address;
+- (void)tap;
 @end
 
 NS_ASSUME_NONNULL_END
