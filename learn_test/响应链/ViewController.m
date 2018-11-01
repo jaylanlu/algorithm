@@ -42,12 +42,23 @@
      */
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     [_aView addGestureRecognizer:tap];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 50, 30)];
+    btn.backgroundColor = [UIColor blueColor];
+    //同时添加action和tap只响应了tap 所以手势比action的优先级高
+//    [btn addTarget:self action:@selector(clickAction) forControlEvents:UIControlEventTouchUpInside];
+//    UITapGestureRecognizer *ap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+//    [btn addGestureRecognizer:ap];
+    [_dView addSubview:btn];
 }
 
 - (void)tapAction {
     NSLog(@"aView tap");
 }
 
+- (void)clickAction {
+    NSLog(@"this is btn Action ");
+}
 /*
  替换了hitTest:withEvent:和pointInside:withEvent:两个方法后
  

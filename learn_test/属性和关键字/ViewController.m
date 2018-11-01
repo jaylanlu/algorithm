@@ -84,6 +84,8 @@
 /**
  get、set以及@synthesize、@dynamic相关测试
  */
+- (IBAction)tapAction:(UIButton *)sender {
+}
 - (void)func1 {
     
 //    ViewController.sta = @"lll";
