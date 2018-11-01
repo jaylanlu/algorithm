@@ -39,6 +39,14 @@
 		F67C4AF221773A5D00DA69B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF021773A5D00DA69B4 /* LaunchScreen.storyboard */; };
 		F67C4AF521773A5D00DA69B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F67C4AF421773A5D00DA69B4 /* main.m */; };
 		F67C4AFA2178A54100DA69B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */; };
+		F6D84FE0218A8E770000C214 /* EView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FDF218A8E770000C214 /* EView.m */; };
+		F6D84FE9218AADB50000C214 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FE8218AADB50000C214 /* AppDelegate.m */; };
+		F6D84FEC218AADB50000C214 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FEB218AADB50000C214 /* ViewController.m */; };
+		F6D84FEF218AADB50000C214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D84FED218AADB50000C214 /* Main.storyboard */; };
+		F6D84FF1218AADB60000C214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6D84FF0218AADB60000C214 /* Assets.xcassets */; };
+		F6D84FF4218AADB60000C214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D84FF2218AADB60000C214 /* LaunchScreen.storyboard */; };
+		F6D84FF7218AADB60000C214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FF6218AADB60000C214 /* main.m */; };
+		F6FBB681218AEC32006BA658 /* UILabel+DefaultColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FBB680218AEC32006BA658 /* UILabel+DefaultColor.m */; };
 		F6FE47AB2186981400155CD4 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FE47AA2186981400155CD4 /* Address.m */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +120,20 @@
 		F67C4AF321773A5D00DA69B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F67C4AF421773A5D00DA69B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F6D84FDE218A8E770000C214 /* EView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EView.h; sourceTree = "<group>"; };
+		F6D84FDF218A8E770000C214 /* EView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EView.m; sourceTree = "<group>"; };
+		F6D84FE5218AADB50000C214 /* runtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = runtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6D84FE7218AADB50000C214 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F6D84FE8218AADB50000C214 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F6D84FEA218AADB50000C214 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F6D84FEB218AADB50000C214 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F6D84FEE218AADB50000C214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6D84FF0218AADB60000C214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F6D84FF3218AADB60000C214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F6D84FF5218AADB60000C214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6D84FF6218AADB60000C214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F6FBB67F218AEC32006BA658 /* UILabel+DefaultColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+DefaultColor.h"; sourceTree = "<group>"; };
+		F6FBB680218AEC32006BA658 /* UILabel+DefaultColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DefaultColor.m"; sourceTree = "<group>"; };
 		F6FE47A92186981400155CD4 /* Address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		F6FE47AA2186981400155CD4 /* Address.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +167,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6D84FE2218AADB50000C214 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -170,6 +199,8 @@
 				55AD7881218896CD00DF6C1D /* CView.m */,
 				55AD7883218896DD00DF6C1D /* DView.h */,
 				55AD7884218896DD00DF6C1D /* DView.m */,
+				F6D84FDE218A8E770000C214 /* EView.h */,
+				F6D84FDF218A8E770000C214 /* EView.m */,
 			);
 			path = "响应链";
 			sourceTree = "<group>";
@@ -204,6 +235,7 @@
 				F67C4AE421773A5D00DA69B4 /* 属性和关键字 */,
 				F611F21A21829D3F0013BD97 /* KVC&KVO */,
 				55AD786221888E7600DF6C1D /* 响应链 */,
+				F6D84FE6218AADB50000C214 /* runtime */,
 				F67C4A912176D0A700DA69B4 /* Products */,
 				F67C4AB72176D18000DA69B4 /* NotificationCenter copy-Info.plist */,
 			);
@@ -216,6 +248,7 @@
 				F67C4AE321773A5D00DA69B4 /* Property&Keyword.app */,
 				F611F21921829D3F0013BD97 /* KVC&KVO.app */,
 				55AD786121888E7600DF6C1D /* 响应链.app */,
+				F6D84FE5218AADB50000C214 /* runtime.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,6 +283,24 @@
 				F67C4AF421773A5D00DA69B4 /* main.m */,
 			);
 			path = "属性和关键字";
+			sourceTree = "<group>";
+		};
+		F6D84FE6218AADB50000C214 /* runtime */ = {
+			isa = PBXGroup;
+			children = (
+				F6D84FE7218AADB50000C214 /* AppDelegate.h */,
+				F6D84FE8218AADB50000C214 /* AppDelegate.m */,
+				F6D84FEA218AADB50000C214 /* ViewController.h */,
+				F6D84FEB218AADB50000C214 /* ViewController.m */,
+				F6D84FED218AADB50000C214 /* Main.storyboard */,
+				F6D84FF0218AADB60000C214 /* Assets.xcassets */,
+				F6D84FF2218AADB60000C214 /* LaunchScreen.storyboard */,
+				F6D84FF5218AADB60000C214 /* Info.plist */,
+				F6D84FF6218AADB60000C214 /* main.m */,
+				F6FBB67F218AEC32006BA658 /* UILabel+DefaultColor.h */,
+				F6FBB680218AEC32006BA658 /* UILabel+DefaultColor.m */,
+			);
+			path = runtime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +375,23 @@
 			productReference = F67C4AE321773A5D00DA69B4 /* Property&Keyword.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F6D84FE4218AADB50000C214 /* runtime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6D84FF8218AADB60000C214 /* Build configuration list for PBXNativeTarget "runtime" */;
+			buildPhases = (
+				F6D84FE1218AADB50000C214 /* Sources */,
+				F6D84FE2218AADB50000C214 /* Frameworks */,
+				F6D84FE3218AADB50000C214 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = runtime;
+			productName = runtime;
+			productReference = F6D84FE5218AADB50000C214 /* runtime.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -345,6 +413,9 @@
 					F67C4AE221773A5D00DA69B4 = {
 						CreatedOnToolsVersion = 10.0;
 					};
+					F6D84FE4218AADB50000C214 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = F67C4A8B2176D0A700DA69B4 /* Build configuration list for PBXProject "NotificationCenter" */;
@@ -364,6 +435,7 @@
 				F67C4AE221773A5D00DA69B4 /* Property&Keyword */,
 				F611F21821829D3F0013BD97 /* KVC&KVO */,
 				55AD786021888E7600DF6C1D /* 响应链 */,
+				F6D84FE4218AADB50000C214 /* runtime */,
 			);
 		};
 /* End PBXProject section */
@@ -410,6 +482,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6D84FE3218AADB50000C214 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6D84FF4218AADB60000C214 /* LaunchScreen.storyboard in Resources */,
+				F6D84FF1218AADB60000C214 /* Assets.xcassets in Resources */,
+				F6D84FEF218AADB50000C214 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -420,6 +502,7 @@
 				55AD786821888E7600DF6C1D /* ViewController.m in Sources */,
 				55AD7885218896DD00DF6C1D /* DView.m in Sources */,
 				55AD787321888E7900DF6C1D /* main.m in Sources */,
+				F6D84FE0218A8E770000C214 /* EView.m in Sources */,
 				55AD7882218896CD00DF6C1D /* CView.m in Sources */,
 				55AD786521888E7600DF6C1D /* AppDelegate.m in Sources */,
 				55AD787F218896BA00DF6C1D /* BView.m in Sources */,
@@ -458,6 +541,17 @@
 				F67C4AEA21773A5D00DA69B4 /* ViewController.m in Sources */,
 				F67C4AF521773A5D00DA69B4 /* main.m in Sources */,
 				F67C4AE721773A5D00DA69B4 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6D84FE1218AADB50000C214 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6D84FEC218AADB50000C214 /* ViewController.m in Sources */,
+				F6D84FF7218AADB60000C214 /* main.m in Sources */,
+				F6FBB681218AEC32006BA658 /* UILabel+DefaultColor.m in Sources */,
+				F6D84FE9218AADB50000C214 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +618,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				F67C4AF121773A5D00DA69B4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F6D84FED218AADB50000C214 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D84FEE218AADB50000C214 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F6D84FF2218AADB60000C214 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D84FF3218AADB60000C214 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -775,6 +885,40 @@
 			};
 			name = Release;
 		};
+		F6D84FF9218AADB60000C214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = runtime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com..runtime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F6D84FFA218AADB60000C214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = runtime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com..runtime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -819,6 +963,15 @@
 			buildConfigurations = (
 				F67C4AF721773A5D00DA69B4 /* Debug */,
 				F67C4AF821773A5D00DA69B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6D84FF8218AADB60000C214 /* Build configuration list for PBXNativeTarget "runtime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6D84FF9218AADB60000C214 /* Debug */,
+				F6D84FFA218AADB60000C214 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

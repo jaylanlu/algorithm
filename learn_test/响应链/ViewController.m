@@ -11,12 +11,15 @@
 #import "BView.h"
 #import "CView.h"
 #import "DView.h"
+#import "EView.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet AView *aView;
 @property (weak, nonatomic) IBOutlet BView *bView;
 @property (weak, nonatomic) IBOutlet CView *cView;
 @property (weak, nonatomic) IBOutlet DView *dView;
+@property (weak, nonatomic) IBOutlet EView *eView;
+
 
 @end
 
@@ -40,8 +43,8 @@
      添加了手势之后，上面的CView touch end 没有了 替换成了aView tap
      所以手势的优先级比视图的高
      */
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-    [_aView addGestureRecognizer:tap];
+    UITapGestureRecognizer *aTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(aTap)];
+    [_aView addGestureRecognizer:aTap];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 50, 30)];
     btn.backgroundColor = [UIColor blueColor];
@@ -50,14 +53,30 @@
 //    UITapGestureRecognizer *ap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
 //    [btn addGestureRecognizer:ap];
     [_dView addSubview:btn];
+    
+    
+    
+    UITapGestureRecognizer *bTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bTap)];
+    [_bView addGestureRecognizer:bTap];
+    
+    UITapGestureRecognizer *eTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(eTap)];
+    [_eView addGestureRecognizer:eTap];
 }
 
-- (void)tapAction {
+- (void)aTap {
     NSLog(@"aView tap");
 }
 
 - (void)clickAction {
     NSLog(@"this is btn Action ");
+}
+
+- (void)bTap {
+    NSLog(@"bView tap");
+}
+
+- (void)eTap {
+    NSLog(@"eView tap");
 }
 /*
  替换了hitTest:withEvent:和pointInside:withEvent:两个方法后
@@ -94,6 +113,5 @@
 2018-10-31 09:17:59.198123+0800 响应链[3181:4105266] AppDelegate
 2018-10-31 09:17:59.268672+0800 响应链[3181:4105266] aView tap
 */
-
 
 @end
