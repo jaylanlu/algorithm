@@ -8,6 +8,21 @@
 
 #import "ViewController.h"
 #import "UILabel+DefaultColor.h"
+#import "objc/runtime.h"
+
+static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, SEL swizzileSelector) {
+//   获取类的实例方法
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzleMethod = class_getInstanceMethod(class, swizzileSelector);
+    
+//    添加一个方法，并且将其实现与指定的sel相对应
+    BOOL success = class_addMethod(class, originalSelector, class_getMethodImplementation(class, swizzileSelector), method_getTypeEncoding(swizzleMethod));
+    if (success) {
+        class_replaceMethod(class, swizzileSelector, class_getMethodImplementation(class, originalSelector), method_getTypeEncoding(originalMethod));
+    }else {
+        method_exchangeImplementations(originalMethod, swizzleMethod);
+    }
+}
 
 @interface ViewController ()
 
@@ -20,7 +35,27 @@
     UILabel *label = [[UILabel alloc] init];
     label.defaultColor = [UIColor redColor];
     [label updateColor];
+    [UILabel update];
     NSLog(@"label-%@",label.defaultColor);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"this is viewWillAppear");
+}
+
+- (void)ds_viewWillAppear:(BOOL)animated {
+    NSLog(@"this is ds_viewWillAppear");
+}
+
+
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        swizziling_exchangeMethod(self, @selector(viewWillAppear:), @selector(ds_viewWillAppear:));
+        swizziling_exchangeMethod(self, @selector(viewWillAppear:), @selector(ds_viewWillAppear:));
+    });
 }
 
 

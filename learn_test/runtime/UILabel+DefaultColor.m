@@ -50,4 +50,16 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
     NSLog(@"this is updateColor cr");
 //    return nil;
 }
+
++ (BOOL)resolveClassMethod:(SEL)sel {
+    if (sel == @selector(update)) {
+        class_addMethod(object_getClass(self), sel, class_getMethodImplementation(object_getClass(self), @selector(update)), "v");
+    }
+    
+    return [super resolveClassMethod:sel];
+}
+
++ (void)update {
+    NSLog(@"this is update");
+}
 @end
