@@ -20,6 +20,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.defaultColor = [UIColor redColor];
     [label updateColor];
+    [UILabel update];
     NSLog(@"label-%@",label.defaultColor);
 }
 

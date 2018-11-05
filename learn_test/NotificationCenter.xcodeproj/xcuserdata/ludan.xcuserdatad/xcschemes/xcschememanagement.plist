@@ -7,7 +7,7 @@
 		<key>KVC&amp;KVO.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>NotificationCenter.xcscheme</key>
 		<dict>
@@ -17,7 +17,12 @@
 		<key>Property&amp;Keyword.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+		<key>runtime.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>响应链.xcscheme</key>
 		<dict>

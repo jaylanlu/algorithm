@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *defaultColor;
 
 - (void)updateColor;
++ (void)update;
 @end
 
 NS_ASSUME_NONNULL_END

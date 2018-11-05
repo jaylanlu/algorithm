@@ -25,6 +25,12 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
    return objc_getAssociatedObject(self, &kDefaultColorKey);
 }
 
+
+/**
+ 为实例方法的sel动态提供实现
+ @param sel <#sel description#>
+ @return <#return value description#>
+ */
 + (BOOL)resolveInstanceMethod:(SEL)sel {
     if (sel == @selector(updateColor)) {
         
@@ -42,6 +48,13 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
     return [super resolveInstanceMethod:sel];
 }
 
++ (BOOL)resolveClassMethod:(SEL)sel {
+    if (sel == @selector(update)) {
+        class_addMethod(object_getClass(self), sel, class_getMethodImplementation(object_getClass(self), @selector(ds_update)), "v");
+    }
+    return [super resolveClassMethod:sel];
+}
+
 - (void)ds_updateColor {
     NSLog(@"this is updateColor");
 }
@@ -49,5 +62,9 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
 - (void)ds_updateColor:(UIColor *)cr {
     NSLog(@"this is updateColor cr");
 //    return nil;
+}
+
+- (void)ds_update {
+    NSLog(@"this is update");
 }
 @end
