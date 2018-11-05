@@ -64,7 +64,7 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
 //    return nil;
 }
 
-- (void)ds_update {
-    NSLog(@"this is update");
++ (void)ds_update {
+    NSLog(@"this is ds_update");
 }
 @end

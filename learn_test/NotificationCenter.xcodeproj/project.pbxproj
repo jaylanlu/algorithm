@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A239BD219086FF000CF456 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A239BC219086FF000CF456 /* Person.m */; };
 		55AD785C218750AF00DF6C1D /* ViewController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AD785B218750AF00DF6C1D /* ViewController01.m */; };
 		55AD786521888E7600DF6C1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AD786421888E7600DF6C1D /* AppDelegate.m */; };
 		55AD786821888E7600DF6C1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AD786721888E7600DF6C1D /* ViewController.m */; };
@@ -64,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		55A239BB219086FF000CF456 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		55A239BC219086FF000CF456 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		55AD785A218750AF00DF6C1D /* ViewController01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController01.h; sourceTree = "<group>"; };
 		55AD785B218750AF00DF6C1D /* ViewController01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController01.m; sourceTree = "<group>"; };
 		55AD786121888E7600DF6C1D /* 响应链.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "响应链.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,6 +302,8 @@
 				F6D84FF6218AADB60000C214 /* main.m */,
 				F6FBB67F218AEC32006BA658 /* UILabel+DefaultColor.h */,
 				F6FBB680218AEC32006BA658 /* UILabel+DefaultColor.m */,
+				55A239BB219086FF000CF456 /* Person.h */,
+				55A239BC219086FF000CF456 /* Person.m */,
 			);
 			path = runtime;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 			files = (
 				F6D84FEC218AADB50000C214 /* ViewController.m in Sources */,
 				F6D84FF7218AADB60000C214 /* main.m in Sources */,
+				55A239BD219086FF000CF456 /* Person.m in Sources */,
 				F6FBB681218AEC32006BA658 /* UILabel+DefaultColor.m in Sources */,
 				F6D84FE9218AADB50000C214 /* AppDelegate.m in Sources */,
 			);
