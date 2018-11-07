@@ -40,6 +40,7 @@
 		F67C4AF221773A5D00DA69B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF021773A5D00DA69B4 /* LaunchScreen.storyboard */; };
 		F67C4AF521773A5D00DA69B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F67C4AF421773A5D00DA69B4 /* main.m */; };
 		F67C4AFA2178A54100DA69B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */; };
+		F6CFDA5D2192908100789A1D /* Biology.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CFDA5C2192908100789A1D /* Biology.m */; };
 		F6D84FE0218A8E770000C214 /* EView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FDF218A8E770000C214 /* EView.m */; };
 		F6D84FE9218AADB50000C214 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FE8218AADB50000C214 /* AppDelegate.m */; };
 		F6D84FEC218AADB50000C214 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D84FEB218AADB50000C214 /* ViewController.m */; };
@@ -123,6 +124,8 @@
 		F67C4AF321773A5D00DA69B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F67C4AF421773A5D00DA69B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F6CFDA5B2192908100789A1D /* Biology.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Biology.h; sourceTree = "<group>"; };
+		F6CFDA5C2192908100789A1D /* Biology.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Biology.m; sourceTree = "<group>"; };
 		F6D84FDE218A8E770000C214 /* EView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EView.h; sourceTree = "<group>"; };
 		F6D84FDF218A8E770000C214 /* EView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EView.m; sourceTree = "<group>"; };
 		F6D84FE5218AADB50000C214 /* runtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = runtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +307,8 @@
 				F6FBB680218AEC32006BA658 /* UILabel+DefaultColor.m */,
 				55A239BB219086FF000CF456 /* Person.h */,
 				55A239BC219086FF000CF456 /* Person.m */,
+				F6CFDA5B2192908100789A1D /* Biology.h */,
+				F6CFDA5C2192908100789A1D /* Biology.m */,
 			);
 			path = runtime;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D84FEC218AADB50000C214 /* ViewController.m in Sources */,
+				F6CFDA5D2192908100789A1D /* Biology.m in Sources */,
 				F6D84FF7218AADB60000C214 /* main.m in Sources */,
 				55A239BD219086FF000CF456 /* Person.m in Sources */,
 				F6FBB681218AEC32006BA658 /* UILabel+DefaultColor.m in Sources */,

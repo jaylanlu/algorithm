@@ -13,31 +13,65 @@
 @end
 
 @implementation Person
+//解码
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
-    self = [super init];
-    if (self) {
-        unsigned int count;
-        Ivar *ivars = class_copyIvarList(self.class, &count);
-        for (NSInteger idx = 0; idx<count; idx ++) {
-            Ivar var = ivars[idx];
-            NSString *key = [NSString stringWithUTF8String:ivar_getName(var)];
-            [self setValue:[coder decodeObjectForKey:key] forKey:key];
+    Class cls = self.class;
+    while (cls != NSObject.class) {
+        BOOL kIsSelfClass = cls == self.class;
+        unsigned int ivarCount = 0;
+        unsigned int propVarCount = 0;
+        unsigned int shareVarCount = 0;
+        
+        Ivar *ivars = kIsSelfClass ? class_copyIvarList(cls, &ivarCount) : NULL;
+        objc_property_t *propList = kIsSelfClass ? NULL : class_copyPropertyList(cls, &propVarCount);
+        shareVarCount = ivarCount + propVarCount;
+        for (NSInteger idx = 0; idx<shareVarCount; idx ++) {
+            const char *varName = kIsSelfClass ? ivar_getName(*(ivars + idx)) : property_getName(*(propList + idx));
+            NSString *key = [NSString stringWithUTF8String:varName];
+            
+            id value = [coder decodeObjectForKey:key];
+            NSArray *filter = @[@"superclass",@"description",@"debugDescription",@"hash"];
+            if (value && [filter containsObject:key] == NO) {
+                [self setValue:value forKey:key];
+                
+            }
         }
         free(ivars);
+        free(propList);
+        cls = class_getSuperclass(cls);
     }
     return self;
 }
 
+//编码
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
-    unsigned int outCount;
-    Ivar *ivars = class_copyIvarList(object_getClass(aCoder), &outCount);
-    for (NSInteger idx = 0; idx<outCount; idx ++) {
-        Ivar var = ivars[idx];
-        NSString *key = [NSString stringWithUTF8String:ivar_getName(var)];
-        [aCoder encodeObject:[self valueForKey:key] forKey:key];
+    
+    Class cls = self.class;
+    while (cls != NSObject.class) {
+        BOOL kIsSelfClass = cls == self.class;
+        unsigned int ivarCount = 0;
+        unsigned int propVarCount = 0;
+        unsigned int shareVarCount = 0;
+        
+        Ivar *ivars = kIsSelfClass ? class_copyIvarList(cls, &ivarCount) : NULL;
+        objc_property_t *propList = kIsSelfClass ? NULL : class_copyPropertyList(cls, &propVarCount);
+        shareVarCount = ivarCount + propVarCount;
+        for (NSInteger idx = 0; idx<shareVarCount; idx ++) {
+            const char * varName = kIsSelfClass ? ivar_getName(*(ivars + idx)) : property_getName(*(propList + idx));
+            NSString *key = [NSString stringWithUTF8String:varName];
+            
+            id value = [self valueForKey:key];
+            NSArray *filter = @[@"superclass",@"description",@"debugDescription",@"hash"];
+            if (value && [filter containsObject:key] == NO) {
+                [aCoder encodeObject:value forKey:key];
+            }
+        }
+        free(ivars);
+        free(propList);
+        cls = class_getSuperclass(cls);//指向当前类的父类
     }
-
+    
 }
 
 @end

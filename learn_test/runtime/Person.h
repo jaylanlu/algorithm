@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Biology.h"
 
 typedef NS_ENUM(NSInteger,gender) {
     kMale,
@@ -15,7 +16,7 @@ typedef NS_ENUM(NSInteger,gender) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Person : NSObject
+@interface Person : Biology
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic, assign) NSUInteger age;
 @property (nonatomic, assign) gender *gender;
