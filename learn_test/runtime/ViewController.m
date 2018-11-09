@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UILabel+DefaultColor.h"
 #import "objc/runtime.h"
+#import "Biology.h"
 
 static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, SEL swizzileSelector) {
 //   获取类的实例方法
@@ -37,6 +38,7 @@ static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, 
     [label updateColor];
     [UILabel update];
     NSLog(@"label-%@",label.defaultColor);
+    Biology *bi = [[Biology alloc] initWithDict:@{@"key": @"value"}];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
