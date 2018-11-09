@@ -74,4 +74,8 @@
     
 }
 
+//- (void)updateColor{
+//    NSLog(@"update of person");
+//}
+
 @end
