@@ -43,9 +43,9 @@
 }
 
 
-//- (void)setName: (NSString *)name {
-//    toSetName = name;
-//}
+- (void)setName: (NSString *)name {
+    toSetName = name;
+}
 
 //[person valueForKey:@"name"] getter方法系列查找的顺序是  因为该方法返回的是id类型，所以值类型最好封装成相关的对象类型，否则打印出来会发现是随机的值
 //getName->name->isName

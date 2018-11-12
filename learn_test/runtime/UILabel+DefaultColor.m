@@ -68,18 +68,38 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSMethodSignature *methodSignature = [super methodSignatureForSelector:aSelector];
-    if (!methodSignature) {
-        methodSignature = [[Person new] methodSignatureForSelector:aSelector];
+//    NSMethodSignature *methodSignature = [super methodSignatureForSelector:aSelector];
+//    if (!methodSignature) {
+//        methodSignature = [[Person new] methodSignatureForSelector:aSelector];
+//    }
+//    return methodSignature;
+    if (aSelector == @selector(updateColor)) {
+        return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
     }
-    return methodSignature;
+    return [super forwardingTargetForSelector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    if ([[Person new] respondsToSelector:[anInvocation selector]]) {
-        [anInvocation invokeWithTarget:[Person new]];
+//    if ([[Person new] respondsToSelector:[anInvocation selector]]) {
+//        [anInvocation invokeWithTarget:[Person new]];
+//    }else {
+//        [super forwardInvocation:anInvocation];
+//    }
+    if (anInvocation.selector == @selector(updateColor)) {
+        void *argBuf = NULL;
+        NSUInteger numberOfArguments = anInvocation.methodSignature.numberOfArguments;
+        for (NSUInteger idx = 2; idx < numberOfArguments; idx ++) {
+            const char *type = [anInvocation.methodSignature getArgumentTypeAtIndex:idx];
+            NSUInteger argSize;
+            NSGetSizeAndAlignment(type, &argSize, NULL);
+            if (!(argBuf = reallocf(argBuf, argSize))) {
+                NSLog(@"failed to allocate memory for block invocation");
+                return;
+            }
+            [anInvocation getArgument:argBuf atIndex:idx];
+        }
     }else {
-        [super forwardInvocation:anInvocation];
+        
     }
     
 }
