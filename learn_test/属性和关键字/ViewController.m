@@ -17,6 +17,7 @@
 /**
  get、set以及@synthesize、@dynamic相关
  */
+@property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, assign, getter=isFinished) BOOL finished;//编译器生成的get函数是isFinished,可以用self.isFinished访问该属性;self.isFinished和self.finished指向的地址是相同的
 @property (nonatomic, strong, getter=getModel) NSString *str;
 @property (nonatomic, strong) NSString * string;
@@ -57,10 +58,12 @@
 @end
 
 @implementation ViewController
+@dynamic firstName;
+
 @synthesize finished = _ggfinished;//finished的set方法会操作_ggfinished（这儿会自动生成成员变量_ggfinished）
 @synthesize str = _gstr;//如果不存在@synthesize关键字，相当于@synthesize给每个属性都添加了合取（如string的就是：@synthesize string = _string）
 @dynamic string;//编译器不会自动合取string的get和set方法,并且也不会生成_string成员变量，不能用_string访问
-@synthesize sts;//不会生成成员变量_sts,但是可以用sts 访问属性，并且sts的和self.sts相同
+@synthesize sts;//不会生成成员变量_sts(生成的是成员变量sts),但是可以用sts 访问属性，并且sts的和self.sts相同
 
 
 
