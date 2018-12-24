@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self func2];
+    [self func4];
 }
 
 //pthread
@@ -51,7 +51,50 @@ void *start(void *data) {
 
 //GCD,会自动合理地利用更多的CPU内核，能自动管理生命周期（创建线程、调度任务、销毁线程），也是C语言
 - (void)func3 {
-    dispatch_sync(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+    dispatch_queue_t queue = dispatch_queue_create("text", DISPATCH_QUEUE_CONCURRENT);
+    NSLog(@"%@",queue);
+    dispatch_async(queue, ^{
+        NSLog(@"异步执行");
+        NSLog(@"%@",queue);
+        dispatch_sync(queue, ^{
+            NSLog(@"同步串行");
+        });
+    });
+    
+    
+//    NSLog(@"%@",[NSThread mainThread]);
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//        NSLog(@"同步主队列");
+//    });
+}
+
+- (void)func4 {
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t global = dispatch_get_global_queue(0, 0);
+    dispatch_group_async(group, global, ^{
+        for (int idx = 0; idx < 3; idx ++) {
+            sleep(1);
+            NSLog(@"group-%d-%@",idx,[NSThread currentThread]);
+        }
+    });
+    dispatch_group_async(group, global, ^{
+        for (int idx = 0; idx < 5; idx ++) {
+            sleep(2);
+            NSLog(@"group-%d-%@",idx,[NSThread currentThread]);
+        }
+    });
+    dispatch_group_async(group, global, ^{
+        for (int idx = 0; idx < 8; idx ++) {
+            sleep(3);
+            NSLog(@"group-%d-%@",idx,[NSThread currentThread]);
+        }
+    });
+//    dispatch_group_notify(group, global, ^{
+//        NSLog(@"group-notify");
+//    });
+    //不能放在主线程上面运用
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);//DISPATCH_TIME_NOW
+    NSLog(@"now");
 }
 
 @end

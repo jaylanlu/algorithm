@@ -40,7 +40,6 @@
 		F67C4AF221773A5D00DA69B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF021773A5D00DA69B4 /* LaunchScreen.storyboard */; };
 		F67C4AF521773A5D00DA69B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F67C4AF421773A5D00DA69B4 /* main.m */; };
 		F67C4AFA2178A54100DA69B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */; };
-		F6A9AA4521AE212800157A48 /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A9AA4421AE212800157A48 /* NSNull+NullSafe.m */; };
 		F6AB21D621ABF287005F9B5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AB21D521ABF287005F9B5D /* AppDelegate.m */; };
 		F6AB21D921ABF287005F9B5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AB21D821ABF287005F9B5D /* ViewController.m */; };
 		F6AB21DC21ABF287005F9B5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AB21DA21ABF287005F9B5D /* Main.storyboard */; };
@@ -131,8 +130,6 @@
 		F67C4AF321773A5D00DA69B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F67C4AF421773A5D00DA69B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F67C4AF92178A54100DA69B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F6A9AA4321AE212800157A48 /* NSNull+NullSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNull+NullSafe.h"; sourceTree = "<group>"; };
-		F6A9AA4421AE212800157A48 /* NSNull+NullSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNull+NullSafe.m"; sourceTree = "<group>"; };
 		F6AB21D221ABF287005F9B5D /* 线程.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "线程.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6AB21D421ABF287005F9B5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6AB21D521ABF287005F9B5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -353,8 +350,6 @@
 				55A239BC219086FF000CF456 /* Person.m */,
 				F6CFDA5B2192908100789A1D /* Biology.h */,
 				F6CFDA5C2192908100789A1D /* Biology.m */,
-				F6A9AA4321AE212800157A48 /* NSNull+NullSafe.h */,
-				F6A9AA4421AE212800157A48 /* NSNull+NullSafe.m */,
 			);
 			path = runtime;
 			sourceTree = "<group>";
@@ -649,7 +644,6 @@
 				F6CFDA5D2192908100789A1D /* Biology.m in Sources */,
 				F6D84FF7218AADB60000C214 /* main.m in Sources */,
 				55A239BD219086FF000CF456 /* Person.m in Sources */,
-				F6A9AA4521AE212800157A48 /* NSNull+NullSafe.m in Sources */,
 				F6FBB681218AEC32006BA658 /* UILabel+DefaultColor.m in Sources */,
 				F6D84FE9218AADB50000C214 /* AppDelegate.m in Sources */,
 			);
