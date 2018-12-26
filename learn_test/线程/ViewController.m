@@ -10,6 +10,7 @@
 #import <pthread.h>
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end
 
@@ -18,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self func4];
+    [self func11];
 }
 
 //pthread
@@ -62,10 +63,10 @@ void *start(void *data) {
     });
     
     
-//    NSLog(@"%@",[NSThread mainThread]);
-//    dispatch_sync(dispatch_get_main_queue(), ^{
-//        NSLog(@"同步主队列");
-//    });
+    //    NSLog(@"%@",[NSThread mainThread]);
+    //    dispatch_sync(dispatch_get_main_queue(), ^{
+    //        NSLog(@"同步主队列");
+    //    });
 }
 
 - (void)func4 {
@@ -77,7 +78,7 @@ void *start(void *data) {
             NSLog(@"group-%d-%@",idx,[NSThread currentThread]);
         }
     });
-    dispatch_group_async(group, global, ^{
+    dispatch_group_async(group, dispatch_get_main_queue(), ^{
         for (int idx = 0; idx < 5; idx ++) {
             sleep(2);
             NSLog(@"group-%d-%@",idx,[NSThread currentThread]);
@@ -89,12 +90,182 @@ void *start(void *data) {
             NSLog(@"group-%d-%@",idx,[NSThread currentThread]);
         }
     });
-//    dispatch_group_notify(group, global, ^{
-//        NSLog(@"group-notify");
-//    });
-    //不能放在主线程上面运用
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);//DISPATCH_TIME_NOW
+    //    dispatch_group_notify(group, global, ^{
+    //        NSLog(@"group-notify");
+    //    });
+    //不能放在主线程上面运用,但是若是DISPATCH_TIME_NOW的时候是可以的，now最先输出
+    dispatch_group_wait(group, DISPATCH_TIME_NOW);//DISPATCH_TIME_NOW
     NSLog(@"now");
 }
 
+
+- (void)func5 {
+    //concurrentQueue
+    //    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    //    dispatch_queue_t globalQueue = dispatch_queue_create("com.baidu", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t globalQueue = dispatch_queue_create("com", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(globalQueue, ^{
+        sleep(4);
+        NSLog(@"0");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"1");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"2");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"3");
+    });
+    //前面执行完后才执行后面的,必须是dispatch_queue_create生成的concurrentQueue,否则如果是serial queue or one of the global concurrent queues,就会想dispatch_async一样
+    dispatch_barrier_async(globalQueue, ^{
+        NSLog(@"async_barrier");
+    });
+    //    dispatch_sync(globalQueue, ^{
+    //        NSLog(@"sync_barrier");
+    //    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"4");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"5");
+    });
+    dispatch_async(globalQueue, ^{
+        NSLog(@"6");
+    });
+    
+}
+
+- (void)func6 {
+    //并不是在指定时间后执行处理，而是在指定时间追加到Queue里面
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"dadadsfa");
+    });
+    
+    //dispatch_sync和dispatch_barrier_sync函数都不能添加到主队列上，它们都是等待线程中的处理执行完毕
+}
+
+- (void)func7 {
+    //也会等待处理执行结束，因此也不能直接添加到主队列中
+    dispatch_apply(3, dispatch_get_global_queue(0, 0), ^(size_t idx) {
+        if (idx == 0) {
+            sleep(3);
+        }
+        NSLog(@"%zu",idx);
+    });
+    
+    //    //serial队列中是可以的
+    //    dispatch_queue_t queue = dispatch_queue_create("comm", NULL);
+    //    dispatch_apply(3, queue, ^(size_t idx) {
+    //        NSLog(@"%zu",idx);
+    //    });
+    //    dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        //block 执行的顺序取决于queue是串行还是并行队列
+    //        dispatch_apply(4, queue, ^(size_t idx) {
+    //            if (idx == 0) {
+    //                sleep(3);
+    //            }
+    //            NSLog(@"%zu",idx);
+    //        });
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            NSLog(@"done");
+    //        });
+    //    });
+}
+
+- (void)func8 {
+    dispatch_queue_t queue = dispatch_queue_create("com.text", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"1miao0");
+    });
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"1miao1");;
+    });
+    [NSThread sleepForTimeInterval:1];
+    dispatch_suspend(queue);//暂停队列
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"1miao2");;
+    });
+    NSLog(@"%@",queue);
+    [NSThread sleepForTimeInterval:5];
+    dispatch_resume(queue);//重启队列，加在队列里面的任务都会执行
+    NSLog(@"%@",queue);
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"1miao3");;
+    });
+}
+
+- (void)func9 {
+    //最多允许1个线程执行，所以会顺序执行
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    dispatch_async(queue, ^{
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        sleep(3);
+        NSLog(@"task 1");
+        dispatch_semaphore_signal(semaphore);
+    });
+    
+    dispatch_async(queue, ^{
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        sleep(1);
+        NSLog(@"task 2");
+        dispatch_semaphore_signal(semaphore);
+    });
+    
+    dispatch_async(queue, ^{
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        sleep(1);
+        NSLog(@"task 3");
+        dispatch_semaphore_signal(semaphore);
+    });
+}
+
+- (void)func10 {
+    //在APP生命周期中只执行一次
+    static ViewController *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [ViewController new];
+    });
+    
+}
+
+/*
+ 串行队列相当于只有一个队列，不管有多少个线程，只有一个队列FIFO，所以不管是同步执行（sync）还是异步执行（async）都是一个一个的执行
+ 并行队列相当于有多个对垒，若是同步执行（相当如只有一个线程），会将队列中的数据放到单线程中一个一个的执行；若是异步执行（相当如多个线程），会一起执行没哟严格的先后顺序
+ 同步执行——单线程
+ 异步执行——多线程
+ */
+
+- (void)func11 {
+    __block NSInteger time = 60;
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    typeof(self) __weak weakSelf = self;
+    dispatch_source_set_event_handler(timer, ^{
+        typeof(weakSelf) __strong strongSelf = weakSelf;
+        if (time <= 0) {
+            dispatch_source_cancel(timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf.btn setTitle:@"重新发送" forState:UIControlStateNormal];
+                [strongSelf.btn setUserInteractionEnabled:YES];
+            });
+        }else {
+            time --;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.btn.titleLabel.text = [NSString stringWithFormat:@"%ld秒",(long)time];
+                [strongSelf.btn setTitle:[NSString stringWithFormat:@"%ld秒",(long)time] forState:UIControlStateNormal];
+                [strongSelf.btn setUserInteractionEnabled:NO];
+            });
+            
+        }
+    });
+    dispatch_resume(timer);
+}
 @end
