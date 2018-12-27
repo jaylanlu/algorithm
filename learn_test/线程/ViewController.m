@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self func11];
+    [self func13];
 }
 
 //pthread
@@ -267,5 +267,105 @@ void *start(void *data) {
         }
     });
     dispatch_resume(timer);
+    
+    
 }
+
+- (void)func12 {
+    dispatch_queue_t serialQueue = dispatch_queue_create("comm", NULL);
+    dispatch_queue_t globalBacgroudQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    
+    //将globalBacgroudQueue的优先级应用于serialQueue,由于不知道应用于主队列和全局队列会出现什么问题，所以这两个队列不能指定。
+    dispatch_set_target_queue(serialQueue, globalBacgroudQueue);
+    
+//    /* 当将某一个Serial Queue应用到可以并行执行的多个Serial Queue上时，可以防止并行处理 */
+//    dispatch_queue_t serial = dispatch_queue_create("serial", NULL);
+//
+//    dispatch_queue_t queue1 = dispatch_queue_create("queue1", NULL);
+//    dispatch_queue_t queue2 = dispatch_queue_create("queue2", NULL);
+//    dispatch_queue_t queue3 = dispatch_queue_create("queue3", NULL);
+//
+//    dispatch_async(queue1, ^{
+//        sleep(3);
+//        NSLog(@"queue1");
+//    });
+//    dispatch_async(queue2, ^{
+//        sleep(2);
+//        NSLog(@"queue2");
+//    });
+//    dispatch_async(queue3, ^{
+//        sleep(1);
+//        NSLog(@"queue3");
+//    });//3-2-1，无序输出
+//
+//    dispatch_set_target_queue(queue1, serial);
+//    dispatch_set_target_queue(queue2, serial);
+//    dispatch_set_target_queue(queue3, serial);
+//
+//    dispatch_async(queue1, ^{
+//        sleep(3);
+//        NSLog(@"queue1");
+//    });
+//    dispatch_async(queue2, ^{
+//        sleep(2);
+//        NSLog(@"queue2");
+//    });
+//    dispatch_async(queue3, ^{
+//        sleep(1);
+//        NSLog(@"queue3");
+//    });//1-2-3顺序输出
+//
+    
+}
+
+#pragma - mark  NSOperation & NSOPerationQueue
+//nsoperation 是一个抽象类，通过两个子类nsinvocationoperation nsblockoperation 封装任务
+- (void)func13 {
+//    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(runAction) object:nil];
+//    [operation start];
+    
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"this is nsblockOperation");
+    }];
+    //并行无序
+    [operation addExecutionBlock:^{
+        sleep(1);
+        NSLog(@"sleep 1");
+    }];
+    [operation addExecutionBlock:^{
+        NSLog(@"sleep 2");
+    }];
+    
+    //都是并行队列
+    NSOperationQueue *queue = [NSOperationQueue new];
+    queue.maxConcurrentOperationCount = 1;//同一时间该并行队列能执行的任务数
+    
+    [queue addOperation:operation];
+//    queue addOperationWithBlock:^{
+//
+//    }
+    
+//    [operation start];
+    
+    //添加任务依赖,顺序执行
+    NSBlockOperation *operation0 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"this is nsblockOperation0");
+    }];
+    NSBlockOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"this is nsblockOperation1");
+    }];
+    NSBlockOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"this is nsblockOperation2");
+    }];
+    [operation1 addDependency:operation0];
+    [operation2 addDependency:operation1];
+    NSOperationQueue *queue2 = [NSOperationQueue new];
+    [queue2 addOperations:@[operation0,operation1,operation2] waitUntilFinished:NO];
+    
+}
+
+- (void)runAction {
+    NSLog(@"this is nsInvocationOperation");
+}
+
 @end
