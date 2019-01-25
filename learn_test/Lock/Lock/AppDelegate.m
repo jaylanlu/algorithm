@@ -1,14 +1,12 @@
-
 //
 //  AppDelegate.m
-//  Property&Keyword
+//  Lock
 //
-//  Created by Jaylan on 2018/10/17.
-//  Copyright © 2018年 Jaylan. All rights reserved.
+//  Created by Jaylan on 2018/12/27.
+//  Copyright © 2018 Jaylan. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "NSString+Stt.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [@"123" llls];
+    // Override point for customization after application launch.
     return YES;
 }
 

@@ -34,20 +34,27 @@
     //注释掉set方法，会发现赋值是成功的
     [person setValue:@"Davi" forKey:@"name"];
 //
-//    NSString *name = [person valueForKey:@"name"];
-//    NSLog(@"%@",name);
+    NSString *name = [person valueForKey:@"idx"];
+    NSLog(@"%@",name);
 
     
-//    NSNumber *nn = [person valueForKey:@"strr"];
-//    NSLog(@"%@",nn);
+    __unused   NSNumber *nn = [person valueForKey:@"strr"];
+    NSLog(@"%@",nn);
+    
+    __unused NSString *ss = [person valueForKey:@"name"];
+    NSLog(@"%@",ss);
 
 //    add.city = @"武汉";//当city为私有时也可以
 //    person.address = add;
 
     [person setValue:@"深圳" forKeyPath:@"address.city"];
+    [person setValue:nil forKey:@""];
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+//    [dict setObject:@"" forKey:nil];
+    
 
-    NSNumber *nn = [person valueForKey:@"num"];
-    NSLog(@"%@",nn);
+//    NSNumber *nn = [person valueForKey:@"num"];
+//    NSLog(@"%@",nn);
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(40, 80, 50, 40)];
     btn.userInteractionEnabled = YES;
@@ -71,7 +78,7 @@
     //前后打印相同，应该是NSKVONotifying_Person类重写了class方法
     NSLog(@"%@--%@",[self.person1 class],[self.person2 class]);
     //执行这一句后self.person1.isa指向由Person变成NSKVONotifying_PersonP
-//    [self.person1 addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+    [self.person1 addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     //把地址强转IMP打印出来后
     /**
      (lldb) p (IMP)0x10d634552
@@ -96,16 +103,27 @@
     //手动触发
     self.idx = 0;
     [self addObserver:self forKeyPath:@"idx" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
-    [self willChangeValueForKey:@"idx"];
+//    [self willChangeValueForKey:@"idx"];
     [self didChangeValueForKey:@"idx"];
     
+    
+}
 
+- (void)dealloc
+{
+    [self.person1 removeObserver:self forKeyPath:@"age" context:nil];
+    
+    NSLog(@"");
+    
 }
 - (IBAction)clickAction:(UIButton *)sender {
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.person1.age = self.person2.age = 10;
+    [self.person1 removeObserver:self forKeyPath:@"age" context:nil];
+    self.per = [ViewController01 new];
+    [self presentViewController:self.per animated:YES completion:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {

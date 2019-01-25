@@ -30,23 +30,40 @@
     
     NSString *toSetName;
     
+    NSInteger idx;
+    
     BOOL isShow;
     
 //    NSInteger num;
+    NSString *strr;
+    
+    NSUInteger age;
 }
 
 - (instancetype)initWith:(Address *)address {
     if (self = [super init]) {
+//        _name = @"_name";
+//        _isName = @"_isName";
+//        name = @"name";
+//        isName = @"isName";
         _address = address;
     }
     return self;
 }
 
 
-- (void)setName: (NSString *)name {
-    toSetName = name;
-}
 
+//- (void)setName: (NSString *)name {
+//    NSLog(@"this is name");
+//}
+
+//- (void)setIsName: (NSString *)isName {
+//    NSLog(@"this is isName");
+//}
+//
+//- (void)set_Name: (NSString *)_Name {
+//    
+//}
 //[person valueForKey:@"name"] getter方法系列查找的顺序是  因为该方法返回的是id类型，所以值类型最好封装成相关的对象类型，否则打印出来会发现是随机的值
 //getName->name->isName
 //- (NSString *)getName {
@@ -62,9 +79,11 @@
 //    return toSetName;
 //}
 
-- (NSInteger)countOfNum {
-    return 10;
-}
+//- (NSInteger)getIdx {
+//    return idx;
+//}
+
+
 
 
 /**
@@ -73,28 +92,41 @@
  若还是没哟找到，同时会查找enumeratorOf<key>,memberOf<key>、countOfStrr三个方法
  */
 
-- (NSUInteger *)countOfStrr {
+- (NSUInteger )countOfStrr {
     return 3;
 }
 
 //下面两个是数组
 //- (id)objectInStrrAtIndex:(NSInteger)idx {
-//    
+//
 //    return @"";
 //}
 //
-//- (id)strrAtIndexes {
+//- (id)strrAtIndexes:(NSIndexSet *)indexes {
 //    return @"";
 //}
 
 //下面两个是集合
-- (id)enumeratorOfStrr {
-    return @"";
+- (NSUInteger)countOfAge {
+    return 2;
 }
 
-- (id)memberOfStrr {
-    return @"";
+- (NSNumber *)memberOfAge:(NSNumber *)object {
+    return @2;
 }
+
+- (NSEnumerator *)enumeratorOfAge {
+    return [[NSEnumerator alloc] init];
+}
+
+
+//- (id)enumeratorOfStrr {
+//    return @"";
+//}
+//
+//- (id)memberOfStrr {
+//    return @"";
+//}
 
 
 /**
@@ -122,6 +154,10 @@
  */
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSLog(@"2---该key不存在--%@",key);
+}
+
+- (void)setNilValueForKey:(NSString *)key {
+    
 }
 
 
@@ -160,6 +196,6 @@
 
 // 不允许自动发送通知
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
-    return NO;
+    return YES;
 }
 @end
