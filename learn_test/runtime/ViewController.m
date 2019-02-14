@@ -12,11 +12,11 @@
 #import "Biology.h"
 
 static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, SEL swizzileSelector) {
-//   获取类的实例方法
+    //   获取类的实例方法
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     Method swizzleMethod = class_getInstanceMethod(class, swizzileSelector);
     
-//    添加一个方法，并且将其实现与指定的sel相对应
+    //    添加一个方法，并且将其实现与指定的sel相对应
     BOOL success = class_addMethod(class, originalSelector, class_getMethodImplementation(class, swizzileSelector), method_getTypeEncoding(swizzleMethod));
     if (success) {
         class_replaceMethod(class, swizzileSelector, class_getMethodImplementation(class, originalSelector), method_getTypeEncoding(originalMethod));
@@ -26,11 +26,11 @@ static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, 
 }
 
 @interface ViewController ()
-
-@end
+    
+    @end
 
 @implementation ViewController
-
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     UILabel *label = [[UILabel alloc] init];
@@ -39,22 +39,29 @@ static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, 
     [UILabel update];
     NSLog(@"label-%@",label.defaultColor);
     Biology *bi = [[Biology alloc] initWithDict:@{@"key": @"value"}];
+    
+//    [self tapAction];
 }
-
+    
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"this is viewWillAppear");
 }
-
+    
 - (void)ds_viewWillAppear:(BOOL)animated {
     NSLog(@"this is ds_viewWillAppear");
 }
-
-
-
-/**
- 类在初始装载时调用
- */
+    
+    
+- (void)doesNotRecognizeSelector:(SEL)aSelector {
+    NSLog(@"%@",aSelector);
+}
+    
+    
+    
+    /**
+     类在初始装载时调用
+     */
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -63,6 +70,8 @@ static inline void swizziling_exchangeMethod(Class class, SEL originalSelector, 
         swizziling_exchangeMethod(self, @selector(viewWillAppear:), @selector(ds_viewWillAppear:));
     });
 }
-
-
-@end
+    
+ 
+    
+    
+    @end

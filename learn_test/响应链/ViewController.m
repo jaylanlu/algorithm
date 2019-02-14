@@ -43,24 +43,27 @@
      添加了手势之后，上面的CView touch end 没有了 替换成了aView tap
      所以手势的优先级比视图的高
      */
-    UITapGestureRecognizer *aTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(aTap)];
-    [_aView addGestureRecognizer:aTap];
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 50, 30)];
-    btn.backgroundColor = [UIColor blueColor];
-    //同时添加action和tap只响应了tap 所以手势比action的优先级高
-//    [btn addTarget:self action:@selector(clickAction) forControlEvents:UIControlEventTouchUpInside];
-//    UITapGestureRecognizer *ap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-//    [btn addGestureRecognizer:ap];
-    [_dView addSubview:btn];
-    
-    
-    
-    UITapGestureRecognizer *bTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bTap)];
-    [_bView addGestureRecognizer:bTap];
-    
-    UITapGestureRecognizer *eTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(eTap)];
-    [_eView addGestureRecognizer:eTap];
+//    UITapGestureRecognizer *aTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(aTap)];
+//    [_aView addGestureRecognizer:aTap];
+//    
+//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(30, 60, 50, 30)];
+//    btn.backgroundColor = [UIColor blueColor];
+//    //同时添加action和tap只响应了tap 所以手势比action的优先级高
+////    [btn addTarget:self action:@selector(clickAction) forControlEvents:UIControlEventTouchUpInside];
+////    UITapGestureRecognizer *ap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+////    [btn addGestureRecognizer:ap];
+//    [_dView addSubview:btn];
+//    
+//    
+//    
+//    UITapGestureRecognizer *bTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bTap)];
+//    [_bView addGestureRecognizer:bTap];
+//    
+//    UITapGestureRecognizer *cTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cTap)];
+//    [_cView addGestureRecognizer:cTap];
+//
+//    UITapGestureRecognizer *eTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(eTap)];
+//    [_eView addGestureRecognizer:eTap];
 }
 
 - (void)aTap {
@@ -73,6 +76,10 @@
 
 - (void)bTap {
     NSLog(@"bView tap");
+}
+
+- (void)cTap {
+    NSLog(@"cView tap");
 }
 
 - (void)eTap {

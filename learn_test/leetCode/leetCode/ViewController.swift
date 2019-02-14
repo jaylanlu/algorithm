@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
 //        lengthOfLongestSubstring("tmmzuxt")
 //        findMedianSortedArrays([1,3], [2])
-        longestPalindrome("aa")
+        longestPalindrome("babbad")
     }
     
     //头插法
@@ -349,8 +349,34 @@ class ViewController: UIViewController {
     }
     
     func longestPalindrome(_ s: String) -> String {
+        
+        if s.count <= 1 {
+            return s
+        }
+        
+        var start = 0
+        var end = 0
+        var len = 0
+        var maxI = 0
+        for i in 0 ..< s.count {
+            let len0 = max(expandAroundCenter(s , i , i), expandAroundCenter(s , i , i + 1))
+            len = max(len, len0)
+            if len == len0 {
+                maxI = i
+            }
+        }
+//        maxI = maxI - 1
+        start = maxI - (len - 1)/2
+        end = maxI + (len - 1)/2
+        let indexS = s.index(s.startIndex, offsetBy: start)
+        let indexE = s.index(s.startIndex, offsetBy: end)
+        return String(s[indexS...indexE])
+   /*
         //反转字符串
         let arr = Array.init(s)
+        if arr.count <= 1 {
+            return s
+        }
         var arr1 = Array<Character>()
         var i = arr.count - 1
         while i >= 0 {
@@ -360,31 +386,37 @@ class ViewController: UIViewController {
         
         //求最大公共子串，矩阵
         var arrData = [[Int]]()
+        for _ in 0 ... arr.count - 1 {
+            var row = [Int]()
+            for _ in 0 ... arr.count - 1 {
+                row.append(0)
+            }
+            arrData.append(row)
+        }
         var h = 0
         var k = 0
         var tab = (0, 0)
         while h < arr.count {
-            var b =
             while k < arr.count {
-                arrData[h][k] = 0
                 if arr[h] == arr1[k] {
-                    if !h == 0 || k == 0 {
-                        arrData[h][k] = arrData[h-1][k-1] + 1
+                    if h == 0 || k == 0 {
+                        arrData[h][k] = 1
+                    }else {
+                        arrData[h][k] = arrData[h-1][k-1] + 1;
                     }
-                    if arrData[h][k] > tab.1 {
+                    if isPalindRome(s, h - arrData[h][k] + 1, h) && arrData[h][k] > tab.1 {
                         tab = (h, arrData[h][k])
                     }
-                }else {
-                    arrData[h][k] = 0
                 }
                 k += 1
             }
             h += 1
+            k = 0
         }
-        if isPalindRome(s, tab.0 - tab.1 - 1, tab.0 - 1) {
+        if isPalindRome(s, tab.0 - tab.1 + 1, tab.0) {
             var ss = Array<Character>()
-            var k = tab.0 - tab.1 - 1
-            while k <= tab.1 {
+            var k = tab.0 - tab.1 + 1
+            while k <= tab.0 {
                 ss.append(arr[k])
                 k += 1
             }
@@ -392,6 +424,7 @@ class ViewController: UIViewController {
         }else {
             return s
         }
+ */
         
        /*暴力法
          let arr = Array.init(s)
@@ -429,6 +462,8 @@ class ViewController: UIViewController {
         }
         return String(ss)
         */
+        
+        
     }
     
     func isPalindRome(_ s: String, _ i: Int, _ j: Int) -> Bool {
@@ -443,6 +478,18 @@ class ViewController: UIViewController {
             k -= 1
         }
         return true
+    }
+    
+    func expandAroundCenter(_ s: String, _ i: Int , _ j : Int) -> Int {
+        var left = i
+        var right = j
+        let arr = Array.init(s)
+        while left > 0 && right < s.count - 1 && arr[left - 1] == arr[right + 1] {
+            left = left - 1
+            right = right + 1
+        }
+        return right - left + 1
+        
     }
     
 }

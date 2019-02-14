@@ -44,7 +44,8 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
          imp:方法的实现
          types:方法的类型
          */
-        class_addMethod(self.class, sel, class_getMethodImplementation(self.class, @selector(ds_updateColor)), nil);//"v@:"表示有参数
+        class_addMethod(self.class, sel, class_getMethodImplementation([self class], @selector(ds_updateColor)), "v@:");//"v@:"表示有参数
+        return NO;
         
     }
     return  [super resolveInstanceMethod:sel];
@@ -81,30 +82,32 @@ static char kDefaultColorKey;//只有第一次能被初始化，或编译器自�
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
 //    if ([[Person new] respondsToSelector:[anInvocation selector]]) {
-//        [anInvocation invokeWithTarget:[Person new]];
+////        [anInvocation invokeWithTarget:[Person new]];
 //    }else {
-//        [super forwardInvocation:anInvocation];
+        [super forwardInvocation:anInvocation];
 //    }
-    if (anInvocation.selector == @selector(updateColor)) {
-        void *argBuf = NULL;
-        NSUInteger numberOfArguments = anInvocation.methodSignature.numberOfArguments;
-        for (NSUInteger idx = 2; idx < numberOfArguments; idx ++) {
-            const char *type = [anInvocation.methodSignature getArgumentTypeAtIndex:idx];
-            NSUInteger argSize;
-            NSGetSizeAndAlignment(type, &argSize, NULL);
-            if (!(argBuf = reallocf(argBuf, argSize))) {
-                NSLog(@"failed to allocate memory for block invocation");
-                return;
-            }
-            [anInvocation getArgument:argBuf atIndex:idx];
-        }
-    }else {
-        
-    }
+//    if (anInvocation.selector == @selector(updateColor)) {
+//        void *argBuf = NULL;
+//        NSUInteger numberOfArguments = anInvocation.methodSignature.numberOfArguments;
+//        for (NSUInteger idx = 2; idx < numberOfArguments; idx ++) {
+//            const char *type = [anInvocation.methodSignature getArgumentTypeAtIndex:idx];
+//            NSUInteger argSize;
+//            NSGetSizeAndAlignment(type, &argSize, NULL);
+//            if (!(argBuf = reallocf(argBuf, argSize))) {
+//                NSLog(@"failed to allocate memory for block invocation");
+//                return;
+//            }
+//            [anInvocation getArgument:argBuf atIndex:idx];
+//        }
+//    }else {
+//
+//    }
     
 }
 
-
+- (void)doesNotRecognizeSelector:(SEL)aSelector {
+    
+}
 
 //- (void)ds_updateColor {
 //    NSLog(@"this is updateColor");

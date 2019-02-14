@@ -69,7 +69,7 @@ static inline void swizzling_exchangeMethod(Class class,SEL originalSelector,SEL
 //        touch = CGRectInset(self.bounds, -30, -30);//都可以增大响应面积
 //    }
 
-    if (CGRectContainsPoint(touch, point)) {//[self pointInside:point withEvent:event]
+    if ([self pointInside:point withEvent:event]) {////CGRectContainsPoint(touch, point)
         //逆序遍历，在subViews后面的先
         for (UIView *subView in [self.subviews reverseObjectEnumerator]) {
             CGPoint convertedPoint = [subView convertPoint:point fromView:self];

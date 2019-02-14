@@ -18,6 +18,7 @@
  */
 @interface ViewController : UIViewController
 
+- (void)tapAction;
 
 @end
 
