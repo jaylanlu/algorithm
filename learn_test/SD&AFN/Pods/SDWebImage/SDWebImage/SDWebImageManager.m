@@ -26,10 +26,10 @@
 
 @property (strong, nonatomic, readwrite, nonnull) SDImageCache *imageCache;
 @property (strong, nonatomic, readwrite, nonnull) SDWebImageDownloader *imageDownloader;
-@property (strong, nonatomic, nonnull) NSMutableSet<NSURL *> *failedURLs;
-@property (strong, nonatomic, nonnull) dispatch_semaphore_t failedURLsLock; // a lock to keep the access to `failedURLs` thread-safe
-@property (strong, nonatomic, nonnull) NSMutableSet<SDWebImageCombinedOperation *> *runningOperations;
-@property (strong, nonatomic, nonnull) dispatch_semaphore_t runningOperationsLock; // a lock to keep the access to `runningOperations` thread-safe
+@property (strong, nonatomic, nonnull) NSMutableSet<NSURL *> *failedURLs;//下载失败的URL集合
+@property (strong, nonatomic, nonnull) dispatch_semaphore_t failedURLsLock; // a lock to keep the access to `failedURLs` thread-safe//确保访问failedURLs线程安全的锁
+@property (strong, nonatomic, nonnull) NSMutableSet<SDWebImageCombinedOperation *> *runningOperations;//执行的操作集合
+@property (strong, nonatomic, nonnull) dispatch_semaphore_t runningOperationsLock; // a lock to keep the access to `runningOperations` thread-safe//确保访问runningOperations线程安全的锁
 
 @end
 
@@ -55,9 +55,9 @@
         _imageCache = cache;
         _imageDownloader = downloader;
         _failedURLs = [NSMutableSet new];
-        _failedURLsLock = dispatch_semaphore_create(1);
+        _failedURLsLock = dispatch_semaphore_create(1);//只允许同时仅有一个线程访问
         _runningOperations = [NSMutableSet new];
-        _runningOperationsLock = dispatch_semaphore_create(1);
+        _runningOperationsLock = dispatch_semaphore_create(1);//只允许同时仅有一个线程访问
     }
     return self;
 }
@@ -84,7 +84,7 @@
     
     BOOL isInMemoryCache = ([self.imageCache imageFromMemoryCacheForKey:key] != nil);
     
-    if (isInMemoryCache) {
+    if (isInMemoryCache) {//存在内存中
         // making sure we call the completion block on the main queue
         dispatch_async(dispatch_get_main_queue(), ^{
             if (completionBlock) {
@@ -94,7 +94,7 @@
         return;
     }
     
-    [self.imageCache diskImageExistsWithKey:key completion:^(BOOL isInDiskCache) {
+    [self.imageCache diskImageExistsWithKey:key completion:^(BOOL isInDiskCache) {//存在磁盘中
         // the completion block of checkDiskCacheForImageWithKey:completion: is always called on the main queue, no need to further dispatch
         if (completionBlock) {
             completionBlock(isInDiskCache);
@@ -102,6 +102,7 @@
     }];
 }
 
+//是否存在于磁盘
 - (void)diskImageExistsForURL:(nullable NSURL *)url
                    completion:(nullable SDWebImageCheckCacheCompletionBlock)completionBlock {
     NSString *key = [self cacheKeyForURL:url];
@@ -123,26 +124,26 @@
 
     // Very common mistake is to send the URL using NSString object instead of NSURL. For some strange reason, Xcode won't
     // throw any warning for this type mismatch. Here we failsafe this error by allowing URLs to be passed as NSString.
-    if ([url isKindOfClass:NSString.class]) {
+    if ([url isKindOfClass:NSString.class]) {//若传入的是url
         url = [NSURL URLWithString:(NSString *)url];
     }
 
     // Prevents app crashing on argument type error like sending NSNull instead of NSURL
-    if (![url isKindOfClass:NSURL.class]) {
+    if (![url isKindOfClass:NSURL.class]) {//若URL不是NSURL类型
         url = nil;
     }
 
     SDWebImageCombinedOperation *operation = [SDWebImageCombinedOperation new];
     operation.manager = self;
 
-    BOOL isFailedUrl = NO;
+    BOOL isFailedUrl = NO;//是否是黑名单中的URL
     if (url) {
         LOCK(self.failedURLsLock);
         isFailedUrl = [self.failedURLs containsObject:url];
         UNLOCK(self.failedURLsLock);
     }
 
-    if (url.absoluteString.length == 0 || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {
+    if (url.absoluteString.length == 0 || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {//不合法
         [self callCompletionBlockForOperation:operation completion:completedBlock error:[NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil] url:url];
         return operation;
     }
@@ -161,17 +162,17 @@
  
     operation.cacheOperation = [self.imageCache queryCacheOperationForKey:key options:cacheOptions done:^(UIImage *cachedImage, NSData *cachedData, SDImageCacheType cacheType) {
         __strong __typeof(weakOperation) strongOperation = weakOperation;
-        if (!strongOperation || strongOperation.isCancelled) {
+        if (!strongOperation || strongOperation.isCancelled) {//若操作不存在或者被取消
             [self safelyRemoveOperationFromRunning:strongOperation];
             return;
         }
         
         // Check whether we should download image from network
-        BOOL shouldDownload = (!(options & SDWebImageFromCacheOnly))
-            && (!cachedImage || options & SDWebImageRefreshCached)
+        BOOL shouldDownload = (!(options & SDWebImageFromCacheOnly))//不是只从缓存取
+            && (!cachedImage || options & SDWebImageRefreshCached)//缓存没有或者需要刷新缓存
             && (![self.delegate respondsToSelector:@selector(imageManager:shouldDownloadImageForURL:)] || [self.delegate imageManager:self shouldDownloadImageForURL:url]);
-        if (shouldDownload) {
-            if (cachedImage && options & SDWebImageRefreshCached) {
+        if (shouldDownload) {//需要下载
+            if (cachedImage && options & SDWebImageRefreshCached) {//刷新缓存
                 // If image was found in the cache but SDWebImageRefreshCached is provided, notify about the cached image
                 // AND try to re-download it in order to let a chance to NSURLCache to refresh it from server.
                 [self callCompletionBlockForOperation:strongOperation completion:completedBlock image:cachedImage data:cachedData error:nil cacheType:cacheType finished:YES url:url];
