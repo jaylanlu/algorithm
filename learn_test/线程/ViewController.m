@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self func3];
+    [self func25];
+//    [self func23];
 }
 
 //pthread
@@ -385,5 +386,128 @@ void *start(void *data) {
     
 
 }
+
+//醒脑
+- (void)func22 {
+    NSLog(@"22-0");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            sleep(2);
+            NSLog(@"22-1"   );
+        });
+        sleep(3);
+        NSLog(@"22-2");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"22-3");
+        });
+    });
+    sleep(5);
+    NSLog(@"4");
+    
+    
+}
+
+- (void)func23 {
+    dispatch_queue_t global = dispatch_get_global_queue(0, 0);
+    NSLog(@"23-0");
+    dispatch_async(global, ^{
+        dispatch_async(global, ^{
+            sleep(2);
+            NSLog(@"23-1");
+        });
+        sleep(5);
+        NSLog(@"23-2");
+        dispatch_async(global, ^{
+            sleep(1);
+            NSLog(@"23-3");
+        });
+        sleep(0);
+        NSLog(@"23-4");
+    });
+    sleep(1);
+    
+    
+}
+
+- (void)func24 {
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("并行", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(0, 0);
+    //dispatch_sync 等concurrentQueue执行完之后，再在提交的线程里面执行block， 阻塞提交的线程
+    dispatch_sync(concurrentQueue, ^{
+        sleep(1);
+        NSLog(@"---1--%@",[NSThread currentThread]);
+        //---1--<NSThread: 0x600003fad400>{number = 1, name = main}
+    });
+    NSLog(@"1");
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_sync(concurrentQueue, ^{
+            NSLog(@"---2--%@",[NSThread currentThread]);
+            //---2--<NSThread: 0x600003fad400>{number = 1, name = main}
+        });
+    });
+    
+    dispatch_async(globalQueue, ^{
+        NSLog(@"---5--%@",[NSThread currentThread]);
+        //---5--<NSThread: 0x600003ffd800>{number = 3, name = (null)}
+        dispatch_sync(concurrentQueue, ^{
+            sleep(5);
+            NSLog(@"---3--%@",[NSThread currentThread]);
+            //---3--<NSThread: 0x600003ffd800>{number = 3, name = (null)}
+        });
+        NSLog(@"3");
+    });
+    //dispatch_sync 等concurrentQueue执行完之后，再在提交的线程里面执行block
+    
+    dispatch_async(concurrentQueue, ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"---4--%@",[NSThread currentThread]);
+            //---4--<NSThread: 0x600003fad400>{number = 1, name = main}
+        });
+    });
+    //当dispatch_sync 往主队列里面提交的时候，block在主队列里面执行
+    
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"---6--%@",[NSThread currentThread]);
+        //---6--<NSThread: 0x600001392880>{number = 1, name = main}
+    });
+    
+    dispatch_async(concurrentQueue, ^{
+        NSLog(@"---7--%@",[NSThread currentThread]);
+        //---7--<NSThread: 0x6000013c3f40>{number = 3, name = (null)}
+    });
+    
+    dispatch_async(globalQueue, ^{
+        NSLog(@"---8--%@",[NSThread currentThread]);
+        //---8--<NSThread: 0x6000013f6580>{number = 4, name = (null)}
+        dispatch_async(concurrentQueue, ^{
+            NSLog(@"---9--%@",[NSThread currentThread]);
+            //---9--<NSThread: 0x6000013f6580>{number = 4, name = (null)}
+        });
+    });
+    //dispatch_async 往主队列里面提交时在主队列里面执行，否则在分队列里面执行
+}
+
+- (void)func25 {
+    dispatch_queue_t queue = dispatch_queue_create("并行", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(queue, ^{
+        NSLog(@"---任务0--%@",[NSThread currentThread]);
+        dispatch_async(queue, ^{
+            sleep(3);
+            NSLog(@"任务二");
+        });
+        dispatch_async(queue, ^{
+            sleep(2);
+            NSLog(@"任务三");
+        });
+        //睡眠2秒
+        [NSThread sleepForTimeInterval:0];
+        NSLog(@"任务一");
+    });
+    NSLog(@"任务四");
+    NSLog(@"---任务1--%@",[NSThread currentThread]);
+}
+
 
 @end

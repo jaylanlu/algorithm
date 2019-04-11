@@ -26,7 +26,8 @@ static NSString *const main_notification = @"main_notification";
 
 - (void)addNoti {
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(globalNotiAction:) name:global_notification object:self];
-    [[NSNotificationCenter defaultCenter] addObserverForName:global_notification object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserverForName:global_notification object:self queue:queue usingBlock:^(NSNotification * _Nonnull note) {
         NSLog(@"收到了通知，当前线程为--%@",[NSThread currentThread]);
     }];
     
@@ -46,10 +47,13 @@ static NSString *const main_notification = @"main_notification";
 - (void)globalNotiAction:(NSNotification *)notification {
     NSLog(@"收到了通知，当前线程为--%@",[NSThread currentThread]);
 }
-//
-//- (void)mainNotiAction:(NSNotification *)notification {
-//    NSLog(@"收到了通知，当前线程为--%@",[NSThread currentThread]);
-//}
+
+- (void)mainNotiAction:(NSNotification *)notification {
+    NSLog(@"收到了通知，当前线程为--%@",[NSThread currentThread]);
+}
+
+//发送通知和接收通知一般在一个线程中，即使将接收通知的代码写在主队列中，打印出来会发现线程和发送是在同一个线程；
+//但可以用addObserverForName:object:usingBlock:函数切换到其他线程
 
 
 
