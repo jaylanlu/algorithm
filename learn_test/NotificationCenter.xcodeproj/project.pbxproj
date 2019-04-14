@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550F12F622634F8B00BFB376 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F12F522634F8B00BFB376 /* AppDelegate.m */; };
+		550F12F922634F8B00BFB376 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F12F822634F8B00BFB376 /* ViewController.m */; };
+		550F12FC22634F8B00BFB376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 550F12FA22634F8B00BFB376 /* Main.storyboard */; };
+		550F12FE22634F8D00BFB376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550F12FD22634F8D00BFB376 /* Assets.xcassets */; };
+		550F130122634F8D00BFB376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 550F12FF22634F8D00BFB376 /* LaunchScreen.storyboard */; };
+		550F130422634F8D00BFB376 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F130322634F8D00BFB376 /* main.m */; };
+		550F130B22636A1C00BFB376 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F130A22636A1C00BFB376 /* Person.m */; };
+		550F130E22636B6E00BFB376 /* LuPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F130D22636B6E00BFB376 /* LuPerson.m */; };
 		55A239BD219086FF000CF456 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A239BC219086FF000CF456 /* Person.m */; };
 		55A239C621AD7452000CF456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A239C521AD7452000CF456 /* AppDelegate.m */; };
 		55A239C921AD7452000CF456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A239C821AD7452000CF456 /* ViewController.m */; };
@@ -106,6 +114,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		550F12F222634F8B00BFB376 /* 源码探索.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "源码探索.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		550F12F422634F8B00BFB376 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		550F12F522634F8B00BFB376 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		550F12F722634F8B00BFB376 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		550F12F822634F8B00BFB376 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		550F12FB22634F8B00BFB376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		550F12FD22634F8D00BFB376 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		550F130022634F8D00BFB376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		550F130222634F8D00BFB376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		550F130322634F8D00BFB376 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		550F130822635F9700BFB376 /* viewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewDelegate.h; sourceTree = "<group>"; };
+		550F130922636A1C00BFB376 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		550F130A22636A1C00BFB376 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		550F130C22636B6E00BFB376 /* LuPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuPerson.h; sourceTree = "<group>"; };
+		550F130D22636B6E00BFB376 /* LuPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuPerson.m; sourceTree = "<group>"; };
 		55A239BB219086FF000CF456 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		55A239BC219086FF000CF456 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		55A239C221AD7452000CF456 /* Block.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Block.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +269,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		550F12EF22634F8B00BFB376 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55A239BF21AD7452000CF456 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,6 +349,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550F12F322634F8B00BFB376 /* 源码探索 */ = {
+			isa = PBXGroup;
+			children = (
+				550F12F422634F8B00BFB376 /* AppDelegate.h */,
+				550F12F522634F8B00BFB376 /* AppDelegate.m */,
+				550F12F722634F8B00BFB376 /* ViewController.h */,
+				550F12F822634F8B00BFB376 /* ViewController.m */,
+				550F12FA22634F8B00BFB376 /* Main.storyboard */,
+				550F12FD22634F8D00BFB376 /* Assets.xcassets */,
+				550F12FF22634F8D00BFB376 /* LaunchScreen.storyboard */,
+				550F130222634F8D00BFB376 /* Info.plist */,
+				550F130322634F8D00BFB376 /* main.m */,
+				550F130922636A1C00BFB376 /* Person.h */,
+				550F130A22636A1C00BFB376 /* Person.m */,
+				550F130C22636B6E00BFB376 /* LuPerson.h */,
+				550F130D22636B6E00BFB376 /* LuPerson.m */,
+			);
+			path = "源码探索";
+			sourceTree = "<group>";
+		};
 		55A239C321AD7452000CF456 /* Block */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +483,7 @@
 				F62F249421D4BB19006DB4CD /* Lock */,
 				F6AA6CDC2212A43C003F5CB1 /* NSURLSession */,
 				F672737A222D27F80066A4E8 /* vclifecycle */,
+				550F12F322634F8B00BFB376 /* 源码探索 */,
 				F67C4A912176D0A700DA69B4 /* Products */,
 				F67C4AB72176D18000DA69B4 /* NotificationCenter copy-Info.plist */,
 				F62F248E21D4BABE006DB4CD /* 线程 copy-Info.plist */,
@@ -452,6 +503,7 @@
 				F62F249321D4BB19006DB4CD /* Lock.app */,
 				F6AA6CDB2212A43C003F5CB1 /* NSURLSession.app */,
 				F6727379222D27F80066A4E8 /* vclifecycle.app */,
+				550F12F222634F8B00BFB376 /* 源码探索.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -492,6 +544,7 @@
 				F615A38021F5D00D00F08365 /* NSString+Stt.m */,
 				F615A38421F5E25500F08365 /* SubViewController.h */,
 				F615A38521F5E25500F08365 /* SubViewController.m */,
+				550F130822635F9700BFB376 /* viewDelegate.h */,
 			);
 			path = "属性和关键字";
 			sourceTree = "<group>";
@@ -553,6 +606,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		550F12F122634F8B00BFB376 /* 源码探索 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 550F130722634F8D00BFB376 /* Build configuration list for PBXNativeTarget "源码探索" */;
+			buildPhases = (
+				550F12EE22634F8B00BFB376 /* Sources */,
+				550F12EF22634F8B00BFB376 /* Frameworks */,
+				550F12F022634F8B00BFB376 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "源码探索";
+			productName = "源码探索";
+			productReference = 550F12F222634F8B00BFB376 /* 源码探索.app */;
+			productType = "com.apple.product-type.application";
+		};
 		55A239C121AD7452000CF456 /* Block */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55A239D721AD7455000CF456 /* Build configuration list for PBXNativeTarget "Block" */;
@@ -733,6 +803,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Jaylan;
 				TargetAttributes = {
+					550F12F122634F8B00BFB376 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					55A239C121AD7452000CF456 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -788,11 +861,22 @@
 				F62F249221D4BB19006DB4CD /* Lock */,
 				F6AA6CDA2212A43C003F5CB1 /* NSURLSession */,
 				F6727378222D27F80066A4E8 /* vclifecycle */,
+				550F12F122634F8B00BFB376 /* 源码探索 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		550F12F022634F8B00BFB376 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				550F130122634F8D00BFB376 /* LaunchScreen.storyboard in Resources */,
+				550F12FE22634F8D00BFB376 /* Assets.xcassets in Resources */,
+				550F12FC22634F8B00BFB376 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55A239C021AD7452000CF456 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -897,6 +981,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		550F12EE22634F8B00BFB376 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				550F12F922634F8B00BFB376 /* ViewController.m in Sources */,
+				550F130422634F8D00BFB376 /* main.m in Sources */,
+				550F130B22636A1C00BFB376 /* Person.m in Sources */,
+				550F12F622634F8B00BFB376 /* AppDelegate.m in Sources */,
+				550F130E22636B6E00BFB376 /* LuPerson.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55A239BE21AD7452000CF456 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1022,6 +1118,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		550F12FA22634F8B00BFB376 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				550F12FB22634F8B00BFB376 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		550F12FF22634F8D00BFB376 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				550F130022634F8D00BFB376 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		55A239CA21AD7452000CF456 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1185,6 +1297,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		550F130522634F8D00BFB376 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DKE7BY8TV;
+				INFOPLIST_FILE = "源码探索/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ludan.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		550F130622634F8D00BFB376 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DKE7BY8TV;
+				INFOPLIST_FILE = "源码探索/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ludan.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		55A239D521AD7455000CF456 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1638,6 +1786,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		550F130722634F8D00BFB376 /* Build configuration list for PBXNativeTarget "源码探索" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				550F130522634F8D00BFB376 /* Debug */,
+				550F130622634F8D00BFB376 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		55A239D721AD7455000CF456 /* Build configuration list for PBXNativeTarget "Block" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
