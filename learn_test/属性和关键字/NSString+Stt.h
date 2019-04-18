@@ -11,6 +11,8 @@
 @interface NSString (Stt)
 @property (nonatomic, strong) NSString *a;
 - (void)llls;
+//- (NSString *)a;
+//- (void)setA:(NSString *)a;
 @end
 
 
