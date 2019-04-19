@@ -153,8 +153,8 @@
     //    self.string = @"";//会崩溃，因为么有找到set方法；
     
     //只会生成方法声明
-//    NSLog(@"%@",self.str.a);
-//    self.str.a = @"afdsa";
+    NSLog(@"%@",self.str.a);
+    self.str.a = @"afdsa";
     
     
 }

@@ -517,11 +517,11 @@
 				F62F249421D4BB19006DB4CD /* Lock */,
 				F6AA6CDC2212A43C003F5CB1 /* NSURLSession */,
 				F672737A222D27F80066A4E8 /* vclifecycle */,
-<<<<<<< HEAD
+
 				550F12F322634F8B00BFB376 /* 源码探索 */,
-=======
+
 				F6B7A063223DE5410029924F /* category */,
->>>>>>> 524f25841a13a449c1cc05d2fbb51785de1f0544
+
 				F67C4A912176D0A700DA69B4 /* Products */,
 				F67C4AB72176D18000DA69B4 /* NotificationCenter copy-Info.plist */,
 				F62F248E21D4BABE006DB4CD /* 线程 copy-Info.plist */,
@@ -541,11 +541,11 @@
 				F62F249321D4BB19006DB4CD /* Lock.app */,
 				F6AA6CDB2212A43C003F5CB1 /* NSURLSession.app */,
 				F6727379222D27F80066A4E8 /* vclifecycle.app */,
-<<<<<<< HEAD
+
 				550F12F222634F8B00BFB376 /* 源码探索.app */,
-=======
+
 				F6B7A062223DE5410029924F /* category.app */,
->>>>>>> 524f25841a13a449c1cc05d2fbb51785de1f0544
+
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -941,11 +941,11 @@
 				F62F249221D4BB19006DB4CD /* Lock */,
 				F6AA6CDA2212A43C003F5CB1 /* NSURLSession */,
 				F6727378222D27F80066A4E8 /* vclifecycle */,
-<<<<<<< HEAD
+
 				550F12F122634F8B00BFB376 /* 源码探索 */,
-=======
+
 				F6B7A061223DE5410029924F /* category */,
->>>>>>> 524f25841a13a449c1cc05d2fbb51785de1f0544
+
 			);
 		};
 /* End PBXProject section */
