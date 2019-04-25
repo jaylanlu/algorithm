@@ -33,7 +33,7 @@
 @property (nonatomic, assign) BOOL isShow;
 @property (nonatomic, strong) NSString *title;
 
-
+@property (strong) NSString *atomicS;
 @end
 
 
@@ -41,6 +41,7 @@
 @dynamic firstName;
 @synthesize secondName = _secondName;
 @synthesize fourthName = _fourthName;
+
 
 //@synthesize finished = _ggfinished;//finished的set方法会操作_ggfinished（这儿会自动生成成员变量_ggfinished）
 @synthesize str = _gstr;//如果不存在@synthesize关键字，相当于@synthesize给每个属性都添加了合取（如string的就是：@synthesize string = _string）
@@ -80,7 +81,11 @@
     return _fourthName; //没有合成成员变量，不识别
 }
 
-- (BOOL)isFinished {
+//- (BOOL)isFinished {
+//    return _finished;
+//}
+
+- (BOOL)finished {
     return _finished;
 }
 
@@ -158,6 +163,8 @@
     
     
 }
+
+
 
 
 @end

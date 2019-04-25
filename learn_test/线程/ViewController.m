@@ -18,8 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self func25];
+    [self func26];
 //    [self func23];
 }
 
@@ -508,6 +507,17 @@ void *start(void *data) {
     NSLog(@"任务四");
     NSLog(@"---任务1--%@",[NSThread currentThread]);
 }
+
+- (void)func26 {
+    dispatch_queue_t serialQueue = dispatch_queue_create("seral", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(serialQueue, ^{
+        NSLog(@"00---%@",[NSThread currentThread]);
+        dispatch_sync(serialQueue, ^{//崩溃，不能在当前线程sync当前线程，因为会在主线程中执行
+            NSLog(@"11-- %@",[NSThread currentThread]);
+        });
+    });
+}
+//同步任务不会开启主线程，异步任务不在主队列中提交的会开启一个线程
 
 
 @end
