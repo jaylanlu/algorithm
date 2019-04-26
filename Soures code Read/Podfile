@@ -7,4 +7,5 @@ target 'Soures code Read' do
 
   # Pods for Soures code Read
 pod 'YYModel'
+pod 'YYCache'
 end

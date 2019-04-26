@@ -9,7 +9,6 @@
 #import "NSString+Stt.h"
 
 @implementation NSString (Stt)
-//@synthesize a;
 - (void)llls {
 //    NSLog(@"%@",self.a);
 }
