@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self func26];
+    [self func27];
 //    [self func23];
 }
 
@@ -493,7 +493,7 @@ void *start(void *data) {
     dispatch_sync(queue, ^{
         NSLog(@"---任务0--%@",[NSThread currentThread]);
         dispatch_async(queue, ^{
-            sleep(3);
+            sleep(0);
             NSLog(@"任务二");
         });
         dispatch_async(queue, ^{
@@ -501,7 +501,7 @@ void *start(void *data) {
             NSLog(@"任务三");
         });
         //睡眠2秒
-        [NSThread sleepForTimeInterval:0];
+        [NSThread sleepForTimeInterval:3];
         NSLog(@"任务一");
     });
     NSLog(@"任务四");
@@ -519,5 +519,16 @@ void *start(void *data) {
 }
 //同步任务不会开启主线程，异步任务不在主队列中提交的会开启一个线程
 
-
+- (void)func27 {
+    dispatch_queue_t serialQueue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(serialQueue, ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"---%@",[NSThread currentThread]);
+            NSLog(@"sfasf");
+        });
+        NSLog(@"asdf");
+        
+    });
+    
+}
 @end

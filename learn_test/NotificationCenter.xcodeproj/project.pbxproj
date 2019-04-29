@@ -613,12 +613,12 @@
 				F62F249421D4BB19006DB4CD /* Lock */,
 				F6AA6CDC2212A43C003F5CB1 /* NSURLSession */,
 				F672737A222D27F80066A4E8 /* vclifecycle */,
-<<<<<<< HEAD
+
 				550F12F322634F8B00BFB376 /* 源码探索 */,
 				F6B7A063223DE5410029924F /* category */,
 				F6B8489622642F10003A815D /* Crash集锦 */,
 				F6083404227197B600E73409 /* DesignMode */,
-=======
+
 
 				550F12F322634F8B00BFB376 /* 源码探索 */,
 
@@ -626,7 +626,7 @@
 
 				F6B8489622642F10003A815D /* Crash集锦 */,
 
->>>>>>> bfd63819c04a6c631ad9d0dc9237b3737b343140
+
 				F67C4A912176D0A700DA69B4 /* Products */,
 				F67C4AB72176D18000DA69B4 /* NotificationCenter copy-Info.plist */,
 				F62F248E21D4BABE006DB4CD /* 线程 copy-Info.plist */,
@@ -646,12 +646,12 @@
 				F62F249321D4BB19006DB4CD /* Lock.app */,
 				F6AA6CDB2212A43C003F5CB1 /* NSURLSession.app */,
 				F6727379222D27F80066A4E8 /* vclifecycle.app */,
-<<<<<<< HEAD
+
 				550F12F222634F8B00BFB376 /* 源码探索.app */,
 				F6B7A062223DE5410029924F /* category.app */,
 				F6B8489522642F10003A815D /* Crash集锦.app */,
 				F6083403227197B500E73409 /* DesignMode.app */,
-=======
+
 
 				550F12F222634F8B00BFB376 /* 源码探索.app */,
 
@@ -659,7 +659,7 @@
 
 				F6B8489522642F10003A815D /* Crash集锦.app */,
 
->>>>>>> bfd63819c04a6c631ad9d0dc9237b3737b343140
+
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1119,12 +1119,12 @@
 				F62F249221D4BB19006DB4CD /* Lock */,
 				F6AA6CDA2212A43C003F5CB1 /* NSURLSession */,
 				F6727378222D27F80066A4E8 /* vclifecycle */,
-<<<<<<< HEAD
+
 				550F12F122634F8B00BFB376 /* 源码探索 */,
 				F6B7A061223DE5410029924F /* category */,
 				F6B8489422642F10003A815D /* Crash集锦 */,
 				F6083402227197B500E73409 /* DesignMode */,
-=======
+
 
 				550F12F122634F8B00BFB376 /* 源码探索 */,
 
@@ -1132,7 +1132,7 @@
 
 				F6B8489422642F10003A815D /* Crash集锦 */,
 
->>>>>>> bfd63819c04a6c631ad9d0dc9237b3737b343140
+
 			);
 		};
 /* End PBXProject section */
