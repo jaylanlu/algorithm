@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "SuperClass.h"
+
+
 
 @interface ViewController ()
 
@@ -18,6 +21,8 @@
     [super viewDidLoad];
     NSString *string = @"甘斌是傻叉，大傻叉";
     NSString *s = [string substringFromIndex:5];
+    SuperClass *superC = [[SuperClass alloc] init];
+    [superC print];
     
 }
 

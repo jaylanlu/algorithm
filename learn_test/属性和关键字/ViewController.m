@@ -32,9 +32,14 @@
 @property (nonatomic, strong) NSString * sts;
 @property (nonatomic, assign) BOOL isShow;
 @property (nonatomic, strong) NSString *title;
+<<<<<<< HEAD
 @property (strong) NSString *as;
 @property (nonatomic, strong) NSString *aas;
 
+=======
+
+@property (strong) NSString *atomicS;
+>>>>>>> 7bf370f55fbac1dcefb8440d653f02bbe5dc7670
 @end
 
 
@@ -42,6 +47,7 @@
 @dynamic firstName;
 @synthesize secondName = _secondName;
 @synthesize fourthName = _fourthName;
+
 
 //@synthesize finished = _ggfinished;//finished的set方法会操作_ggfinished（这儿会自动生成成员变量_ggfinished）
 @synthesize str = _gstr;//如果不存在@synthesize关键字，相当于@synthesize给每个属性都添加了合取（如string的就是：@synthesize string = _string）
@@ -84,7 +90,11 @@
     return _fourthName; //没有合成成员变量，不识别
 }
 
-- (BOOL)isFinished {
+//- (BOOL)isFinished {
+//    return _finished;
+//}
+
+- (BOOL)finished {
     return _finished;
 }
 
@@ -171,6 +181,7 @@
 //
 //}
 
+<<<<<<< HEAD
 //- (NSString *)aas {
 //    return _as;
 //}
@@ -178,4 +189,8 @@
 //- (void)setAas:(NSString *)aas {
 //
 //}
+=======
+
+
+>>>>>>> 7bf370f55fbac1dcefb8440d653f02bbe5dc7670
 @end
