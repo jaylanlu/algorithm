@@ -40,6 +40,7 @@
     button.backgroundColor = [UIColor redColor];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(firstViewController) forControlEvents:UIControlEventTouchUpInside];
+    [self func2];
 }
 
 - (void)firstViewController {

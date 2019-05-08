@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>Crash集锦.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>KVC&amp;KVO.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,7 +22,7 @@
 		<key>KVC&amp;KVO.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Lock.xcscheme_^#shared#^_</key>
 		<dict>
@@ -27,7 +32,7 @@
 		<key>NSURLSession.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>NotificationCenter.xcscheme</key>
 		<dict>
@@ -47,7 +52,7 @@
 		<key>category.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>8</integer>
 		</dict>
 		<key>runtime.xcscheme</key>
 		<dict>
@@ -62,7 +67,7 @@
 		<key>vclifecycle.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>10</integer>
 		</dict>
 		<key>响应链.xcscheme</key>
 		<dict>
@@ -72,12 +77,12 @@
 		<key>响应链.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>源码探索.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
 		</dict>
 		<key>线程.xcscheme_^#shared#^_</key>
 		<dict>

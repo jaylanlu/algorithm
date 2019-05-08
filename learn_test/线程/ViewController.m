@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self func25];
+    [self func24];
 //    [self func23];
 }
 

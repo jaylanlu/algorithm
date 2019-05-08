@@ -32,7 +32,8 @@
 @property (nonatomic, strong) NSString * sts;
 @property (nonatomic, assign) BOOL isShow;
 @property (nonatomic, strong) NSString *title;
-
+@property (strong) NSString *as;
+@property (nonatomic, strong) NSString *aas;
 
 @end
 
@@ -46,7 +47,7 @@
 @synthesize str = _gstr;//如果不存在@synthesize关键字，相当于@synthesize给每个属性都添加了合取（如string的就是：@synthesize string = _string）
 @dynamic string;//编译器不会自动合取string的get和set方法,并且也不会生成_string成员变量，不能用_string访问
 @synthesize sts;//不会生成成员变量_sts(生成的是成员变量sts),但是可以用sts 访问属性，并且sts的和self.sts相同
-
+//@synthesize as;
 - (void)viewDidLoad {
     [super viewDidLoad];
     /* 测试@dynamic的作用，缺乏getter和setter方法
@@ -65,7 +66,10 @@
     button.backgroundColor = [UIColor redColor];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(firstViewController) forControlEvents:UIControlEventTouchUpInside];
-     [self func1];
+//     [self func1];
+    
+    _thirdName = @"sdfas";
+//    [_thirdName appendFormat:@"af"];//崩溃，传入的是NSString类型
 }
 
 - (void)setSecondName:(NSString *)secondName {
@@ -159,5 +163,19 @@
     
 }
 
+//- (NSString *)as {
+//    return _as;
+//}
+//
+//- (void)setAs:(NSString *)as {
+//
+//}
 
+//- (NSString *)aas {
+//    return _as;
+//}
+//
+//- (void)setAas:(NSString *)aas {
+//
+//}
 @end
